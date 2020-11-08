@@ -1,38 +1,123 @@
-.App {
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+:focus {
+  outline: none;
+}
+
+body {
+  color: #000;
+  background-color: #eaeff2;
+  font-style: #f7f7f7;
+  font-size: 13px;
+  line-height: 21px;
+  letter-spacing: .7px;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+a:active, a:hover, a:visited {
+  outline: none !important;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #dd1c1c !important;
+  /* opacity: .9; */
+}
+
+.screen-reader-text {
+  clip: rect(1px,1px,1px,1px);
+  overflow: hidden;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  border: 0;
+  clip-path: inset(50%);
+  margin: -1px;
+  padding: 0;
+}
+
+nav {
+  display: block;
+  clear: both;
+}
+
+button {
+  overflow: visible;
+}
+
+input {
+  overflow: visible;
+}
+
+input[type="hidden"] {
+  display: none;
+  appearance: none;
+  background-color: initial;
+  cursor: default;
+  padding: initial;
+  border: initial;
+}
+
+select {
+  width: 100%;
+  max-width: 250px;
+  padding: 5px;
+  color: #000;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  line-height: 1.5em;
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoorthing: antialiased;
+}
+
+#move-to-top {
+  background: #dd1c1c;
+  /* visibility: hidden; */
+  /* opacity: 0; */
+  color: #fff;
+  right: 30px;
+  bottom: 30px;
+  font-size: 18px;
+  position: fixed;
   text-align: center;
+  cursor: pointer;
+  z-index: 9999;
+  width: 2em;
+  height: 2em;
+  line-height: 2;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#move-to-top:hover {
+  opacity: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#move-to-top>i {
+  color: #fff;
+  font-family: 'FontAwesome';
+  font-weight: 400;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.move-to-top-hide {
+  opacity: 0 !important;
+  visibility: hidden !important;
 }

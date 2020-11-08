@@ -1,0 +1,148 @@
+.below-header {
+    position: relative;
+}
+
+.below-header::before {
+    background: #fff;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.below-header>.container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 1350px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.below-header>.container>.below-header-bar {
+    display: flex;
+    align-items: center;
+}
+
+.below-header>.container>.below-header-bar>.below-header-col1 {
+    width: 100%;
+    display: flex;
+}
+
+.below-header>.container>.below-header-bar>.below-header-col1>.menu-category-list {
+    position: relative;
+    max-width: 248px;
+    display: none;
+}
+
+.below-header>.container>.below-header-bar>.below-header-col1>nav {
+    width: 100%;
+    padding: 4px 0;
+    display: block;
+    clear: both;
+}
+
+.below-header>.container>.below-header-bar>.below-header-col1>nav>.menu-toggle {
+    width: 100%;
+}
+
+.below-header>.container>.below-header-bar>.below-header-col1>nav>.menu-toggle>.menu-btn {
+    float: right;
+    background: transparent;
+    font-family: sans-serif;
+    font-size: 13px;
+    line-height: 1.15;
+    margin: 0 !important;
+    text-rendering: auto;
+    letter-spacing: unset;
+    word-spacing: normal;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: center;
+    cursor: pointer;
+    font: 400 13.3333px Arial;
+    border: 0 !important;
+    padding: 0 !important;
+}
+
+.below-header>.container>.below-header-bar>.below-header-col1>nav>.menu-toggle>.menu-btn span.icon-bar {
+    display: block !important;
+    width: 22px;
+    height: 2px;
+    background-color: #090909;
+    border-radius: 1px;
+    margin: 5px;
+    font-family: sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+}
+
+.below-header>.container>.below-header-bar>.below-header-col1>nav>.sider>.sider-inner>.top-store-menu {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.below-header>.container>.below-header-bar>.below-header-col1>nav>.sider>.sider-inner>.top-store-menu>li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: inline-block;
+    list-style: none;
+}
+
+.below-header>.container>.below-header-bar>.below-header-col1>nav>.sider>.sider-inner>.top-store-menu>li>a {
+    color: #000;
+    display: block;
+    position: relative;
+    margin: 0;
+    border: 0;
+    font-size: 14px;
+    font-style: normal;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    padding: 12px 20px 12px 0;
+    font-style: normal;
+    line-height: 21px;
+    letter-spacing: .7px;
+    font-weight: inherit;
+}
+
+@media (max-width: 1024px) {
+    .below-header>.container>.below-header-bar>.below-header-col1>nav>.sider>.menu-close {
+        margin: 10px;
+        width: 14px;
+        display: block;
+        text-decoration: none;
+        top: .75em;
+        right: 1em;
+        min-height: 1em;
+        transform-origin: center;
+        transition: all .3s ease;
+        transition-property: transform;
+        font-size: 20px;
+        color: #fff;
+        transform: rotateZ(0deg);
+    }
+
+    .below-header>.container>.below-header-bar>.below-header-col1>nav>.sider>.menu-close::before,
+    .below-header>.container>.below-header-bar>.below-header-col1>nav>.sider>.menu-close::after {
+        content: '';
+        display: block;
+        border-top: 1px solid;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+    }
+    .below-header>.container>.below-header-bar>.below-header-col1>nav>.sider>.menu-close::before {
+        transform: rotateZ(-45deg);
+    }
+    .below-header>.container>.below-header-bar>.below-header-col1>nav>.sider>.menu-close::after {
+        transform: rotateZ(45deg);
+    }
+}

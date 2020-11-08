@@ -1,0 +1,46 @@
+.thunk-preferred_topics-tab {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.thunk-preferred_topics-tab .thunk-heading-wrap {
+    display: flex;
+    -webkit-box-align: center;
+}
+
+.thunk-preferred_topics-tab .thunk-heading-wrap .thunk-heading {
+    width: 30%;
+}
+
+.thunk-preferred_topics-tab .thunk-heading-wrap .thunk-heading h4 {
+    font-size: 18px;
+    line-height: 29px;
+    font-family: "Lato-Bold",sans-serif;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.thunk-preferred_topics-tab .thunk-heading-wrap .thunk-heading .title {
+    margin-bottom: 0;
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 23px;
+    color: #111;
+}
+
+.thunk-preferred_topics-tab .content-wrap {
+    padding: 15px;
+    position: relative;
+}
+
+.thunk-preferred_topics-tab .content-wrap::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #171a29;
+}

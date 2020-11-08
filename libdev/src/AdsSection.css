@@ -1,0 +1,39 @@
+.ads-section {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 885px;
+}
+
+.ads-section a {
+    display: block;
+    background-color: white !important;
+}
+
+.ads-section a:hover {
+    opacity: 0.8;
+}
+
+.carousel .slide img {
+    max-height: 388px;
+    min-height: 200px;
+    height: 43vw;
+    width: 100%;
+    cursor: pointer !important;
+}
+
+.carousel .slide img:hover {
+    opacity: 0.3 !important;
+}
+
+.Carousel>a {
+    height: auto;
+    height: max-content !important;
+}
+
+.Carousel>a>img {
+    cursor: pointer;
+}
+
+.Carousel>a>img:hover {
+    opacity: 0.3 !important;
+}
