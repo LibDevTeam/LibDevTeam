@@ -7,10 +7,16 @@
 .ads-section a {
     display: block;
     background-color: white !important;
+    transition: all 0.7s ease;
 }
 
 .ads-section a:hover {
-    opacity: 0.8;
+    opacity: 0.9;
+    transition: all 0.7s ease;
+}
+
+.carousel .slide {
+    background: #fff;
 }
 
 .carousel .slide img {
@@ -36,4 +42,14 @@
 
 .Carousel>a>img:hover {
     opacity: 0.3 !important;
+}
+
+.ads-section button.control-arrow::before {
+    transition: all 0.3s ease-in;
+}
+
+.ads-section button.control-arrow:hover::before {
+    transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    transition: all 0.3s ease-out;
 }
