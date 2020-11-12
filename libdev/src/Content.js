@@ -2,6 +2,7 @@ import React from 'react';
 import './Footer.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Home';
+import BookDeatils from './BookDeatils';
 
 function Content() {
     return (
@@ -9,6 +10,9 @@ function Content() {
             <Switch>
                 <Route exact path="/">
                     <Home/>
+                </Route>
+                <Route path="/book-details">
+                    <BookDeatils/>
                 </Route>
             </Switch>
         </div>

@@ -33,14 +33,69 @@
 .thunk-preferred_topics-tab .content-wrap {
     padding: 15px;
     position: relative;
+    background: #171a29;
 }
 
-.thunk-preferred_topics-tab .content-wrap::before {
-    content: "";
+.thunk-preferred_topics-tab .owl-theme .owl-nav{
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 35%;
+    z-index: 99999999;
     width: 100%;
-    height: 100%;
-    background: #171a29;
+    font-size:46px;
+    display: block;
+}
+
+.thunk-preferred_topics-tab .owl-nav button.owl-prev,
+.thunk-preferred_topics-tab .owl-nav button.owl-next {
+    position: absolute;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #fff !important;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+    border: solid 0.5px #e5e5e5 !important;
+    margin: auto;
+    height: 36px;
+    width: 36px;
+    z-index: 51;
+    transition: all 0.2s ease-in;
+}
+
+.thunk-preferred_topics-tab .owl-nav button.owl-prev:hover,
+.thunk-preferred_topics-tab .owl-nav button.owl-next:hover {
+    background-color: #333 !important;
+    border: solid 0.5px #333 !important;
+    transition: all 0.2s ease-out;
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+}
+
+.thunk-preferred_topics-tab .owl-nav button.owl-prev{
+  left: 15px;
+}
+.thunk-preferred_topics-tab .owl-nav button.owl-next{
+  right: 15px;
+}
+
+.thunk-preferred_topics-tab .owl-nav button.owl-prev i,
+.thunk-preferred_topics-tab .owl-nav button.owl-next i {
+    display: block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    backface-visibility: hidden;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    margin-top: 3px;
+    margin-left: 0px;
+    font-size: 27px;
+    transition: all 0.2s ease-out;
+}
+
+.thunk-preferred_topics-tab .owl-nav button.owl-next:hover i {
+    margin-left: 3px;
+}
+
+.thunk-preferred_topics-tab .owl-nav button.owl-prev:hover i {
+    margin-left: -3px;
 }

@@ -49,8 +49,8 @@ function Header() {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="/">
-                                                    <span className="top-store-menu-link">All books</span>
+                                                <a href="/all-category">
+                                                    <span className="top-store-menu-link">All Category</span>
                                                 </a>
                                             </li>
                                             <li>
@@ -236,8 +236,8 @@ function Header() {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="">
-                                                    <span className="top-store-menu-link">All Products</span>
+                                                <a href="/all-category">
+                                                    <span className="top-store-menu-link">All Categiry</span>
                                                 </a>
                                             </li>
                                             <li>
