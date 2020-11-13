@@ -1,0 +1,291 @@
+.main-area-product-details {
+    background-color: white;
+    flex-flow: row;
+    display: flex;
+    box-sizing: border-box;
+    box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+    margin-bottom: 30px;
+}
+
+.main-area-product-details .book-image-section {
+    flex-flow: column;
+    position: sticky;
+    height: max-content;
+    float: left;
+    top: 80px;
+    bottom: 0;
+    padding-left: 16px;
+    padding-top: 16px;
+    width: 41.66%;
+}
+
+.main-area-product-details .book-image-container {
+    display: flex;
+    flex: 1;
+    position: relative;
+    width: 100%;
+    border: 1px solid #f0f0f0;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-area-product-details .book-image-container>div {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    width: 60%;
+}
+
+.main-area-product-details .book-image-container img {
+    display: inline-block;
+    max-width: 416px;
+    max-height: 416px;
+    vertical-align: top;
+    position: inherit;
+    height: auto; 
+    width: 100%;
+}
+
+.main-area-product-details .book-button-container {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.main-area-product-details .book-button-container ul {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    list-style-type: disc;
+    margin: 0;
+    padding: 0;
+}
+
+.main-area-product-details .book-button-container li {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    list-style: none;
+}
+
+.main-area-product-details .book-button-container li>button {
+    padding: 18px 8px;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+    width: 98%;
+    border: none;
+    float: left;
+    background: #ff9700;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.main-area-product-details .book-button-container li>button:hover,
+.main-area-product-details .book-button-container li>form>button:hover {
+    box-shadow: 0 4px 6px 0 rgba(0,0,0,.12);
+    transition: all 0.4s ease;
+}
+
+.main-area-product-details .book-button-container li>form>button {
+    background: #fb641b;
+    transition: all 0.4s ease;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+    border: none;
+    color: #fff;
+    padding: 18px 8px;
+    border-radius: 2px;
+    float: right;
+    width: 98%;
+    text-transform: uppercase;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.main-area-product-details .book-details-section {
+    padding: 16px 16px 0px 24px;
+    flex-flow: column;
+    /* display: flex; */
+    position: relative;
+    float: right;
+    width: 58%
+}
+
+.main-area-product-details .book-details-section .page-address-tab {
+    display: flex;
+    flex-flow: row;
+}
+
+.main-area-product-details .book-details-section .page-address-tab>div {
+    display: block;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.main-area-product-details .book-details-section .page-address-tab ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    list-style-type: disc;
+}
+
+.main-area-product-details .book-details-section .page-address-tab ul li.trail-item {
+    list-style-type: none;
+    font-size: 12px;
+    color: #878787;
+    display: inline-block;
+}
+
+.main-area-product-details .book-details-section .page-address-tab ul li a {
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.thunk-breadcrumb li+li::before {
+    padding: 5px;
+    content: "/\00a0";
+}
+
+.main-area-product-details .book-details-section .book-title-tab {
+    display: block;
+    width: 100%;
+}
+
+.main-area-product-details .book-details-section .book-title-wrapper {
+    padding: 0;
+    margin-top: 6px;
+}
+
+.main-area-product-details .book-details-section .book-name-container h1 {
+    color: #212121;
+    font-size: 18px;
+    font-weight: 400;
+    display: contents;
+}
+
+.main-area-product-details .book-details-section .book-name-container span {
+    padding: 0;
+    line-height: 1.4;
+    font-size: inherit;
+    font-weight: inherit;
+    display: inline-block;
+}
+
+.main-area-product-details .book-details-section .book-title-wrapper .book-items-left {
+    color: #ff6161;
+}
+
+.main-area-product-details .book-details-section .book-author-tab {
+    padding: 12px 0px 0px 0px;
+    display: block;
+}
+
+.main-area-product-details .book-details-section .book-author-container {
+    font-size: 14px;
+    /* margin-top: 24px; */
+}
+
+.main-area-product-details .book-details-section .book-author {
+    font-weight: 500;
+    width: 110px;
+    padding-right: 110px;
+    padding-right: 10px;
+    color: #878787;
+    float: left;
+}
+
+.main-area-product-details .book-details-section .book-author-tab .book-author-name {
+    position: relative;
+    margin-left: 110px;
+    color: #212121;
+}
+
+.main-area-product-details .book-details-section .book-description-tab {
+    display: block;
+    width: 100%;
+}
+
+.main-area-product-details .book-details-section .book-description-tab>div {
+    font-size: 14px;
+    margin-top: 24px;
+}
+
+.main-area-product-details .book-details-section .book-description-tag {
+    font-weight: 500;
+    width: 110px;
+    padding-right: 10px;
+    color: #878787;
+    float: left;
+}
+
+.main-area-product-details .book-details-section .book-description-content {
+    position: relative;
+    margin-left: 110px;
+    color: #212121;
+}
+
+.main-area-product-details .book-details-section .book-more-details-tab {
+    display: block;
+    width: 100%;
+}
+
+.main-area-product-details .book-details-section .book-more-details-tab>div {
+    margin-top: 24px;
+    border-radius: 2px;
+    font-size: 12px;
+    border: 1px solid #f0f0f0;
+    margin-bottom: 12px;
+}
+
+.main-area-product-details .book-details-section .book-more-details-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 30px 12px 24px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.14;
+    color: #212121;
+}
+
+.main-area-product-details .book-details-section .book-more-details-tab>div>ul {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 24px;
+}
+
+.main-area-product-details .book-details-section .book-more-details-tab>div>ul>li {
+    padding-bottom: 16px;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+}
+
+.main-area-product-details .book-details-section .book-more-details-tab>div>ul>li>div:nth-of-type(1) {
+    color: #878787;
+    padding-right: 8px;
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+}
+
+.main-area-product-details .book-details-section .book-more-details-tab>div>ul>li>div:nth-of-type(2) {
+    line-height: 1.4;
+    word-break: break-word;
+    color: #212121;
+    width: 75%;
+    font-size: 14px;
+    padding-bottom: 0px;
+}
+
+.container .similar-books {
+    margin-bottom: 30px;
+}

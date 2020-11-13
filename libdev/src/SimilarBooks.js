@@ -1,16 +1,16 @@
 import React from 'react';
+import './SimilarBooks.css';
 import OwlCarousel from 'react-owl-carousel';
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import './RecentlyAdded.css';
 
-function RecentlyAdded() {
+function SimilarBooks() {
     return (
-        <div id="thunk-recently_added-tab" className="thunk-recently_added-tab">
+        <div id="thunk-similar_books-tab" className="thunk-similar_books-tab">
             <div className="thunk-heading-wrap">
                 <div className="thunk-heading">
                     <h4 className="thunk-title">
-                        <span className="title">Recently Added</span>
+                        <span className="title">Similar Books</span>
                     </h4>
                 </div>
             </div>
@@ -18,8 +18,8 @@ function RecentlyAdded() {
                 <OwlCarousel
                     navText={["<i class='slick-nav fa fa-angle-left'></i>","<i class='slick-nav fa fa-angle-right'></i>"]}
                     className="owl-theme thunk-slide"
-                    autoplay={true}
-                    smartSpeed={1800}
+                    // autoplay={true}
+                    smartSpeed={400}
                     responsiveClass={true}
                     responsive={{0:{items:2},767:{items:3},1024:{items:4}}}
                     dots={false}
@@ -70,4 +70,4 @@ function RecentlyAdded() {
     )
 }
 
-export default RecentlyAdded
+export default SimilarBooks
