@@ -45,11 +45,12 @@
 .main-area .category-tab .category-table {
     width: 100%;
     margin-bottom: 30px;
+    position: relative;
 }
 
 .main-area .category-table .category-name {
     /* width: 978px; */
-    position: relative;
+    /* position: relative; */
     /* border-bottom: 1px solid #dedbdb; */
     height: 68px;
     /* margin: 0px auto 0px auto; */
@@ -73,14 +74,24 @@
     background: #fff;
     margin: 0px auto 30px;
     box-shadow: 0 1px 8px 0 rgba(0,0,0,.12);
+    transition: all 0.5s ease;
 }
 
 .main-area .category-table .category-table-content ul {
     margin: 0px;
+    max-height: 500px;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     padding-left: auto;
     padding-right: auto;
+    overflow: hidden;
+    transition: all 1s ease;
+}
+
+.main-area .category-table.hide-table ul {
+    max-height: 12.5em;
+    overflow: hidden;
+    transition: all 0.5s ease;
 }
 
 .main-area .category-table .category-table-content ul li {
@@ -94,37 +105,34 @@
     padding: 3px 0px 3px 0px;
     display: inline-block;
     text-align: center;
+    line-height: 1.5em;
 }
 
 .main-area .category-table .category-table-content ul li a {
     color: #363434;
-    /* margin: auto; */
     transition: all 0.3s ease;
-    /* text-align: center; */
 }
 
-/* .main-area .category-box>ul>li {
-    vertical-align: top;
-    display: inline-block;
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: left;
-    width: 229px;
-    font-size: 15px;
-    text-transform: uppercase;
-    list-style-type: none;
-    height: 50px;
-    margin-top: 10px;
+.main-area .category-table .button-toggle {
+    background: #c80032;
+    color: white;
+    font-size: 23px;
+    position: absolute;
+    border: none;
+    bottom: -15px;
+    left: 50%;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    transition: all 0.2s ease-in;
+    text-align: center;
+    align-content: center;
 }
 
-.main-area .category-box>ul>li>a {
-    color: #212121;
-    display: block;
-    text-decoration: none;
+.main-area .category-table .button-toggle:hover {
+    transform: scale(1.3);
+    font-size: 26px;
+    padding-bottom: 20px;
+    -webkit-transform: scale(1.3);
+    transition: all 0.2s ease-out
 }
-
-.main-area .category-box>ul>li>a>span {
-    padding-top: 18px;
-    display: inline-block;
-    zoom: 1;
-} */
