@@ -34,7 +34,7 @@ function Sidebar() {
                                 <a href="">Category 1</a>
                             </li>
                             <li className="cat-item cat-item-3">
-                                <a href="">Category 3</a>
+                                <a href="/all-category">. . . All Category</a>
                             </li>
                         </ul>
                     </div>

@@ -3,6 +3,7 @@ import './Footer.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import BookDeatils from './BookDeatils';
+import AllCategory from './AllCategory';
 
 function Content() {
     return (
@@ -13,6 +14,9 @@ function Content() {
                 </Route>
                 <Route path="/book-details">
                     <BookDeatils/>
+                </Route>
+                <Route path="/all-category">
+                    <AllCategory/>
                 </Route>
             </Switch>
         </div>
