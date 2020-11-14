@@ -4,6 +4,20 @@ import './BookDetails.css';
 import SimilarBooks from './SimilarBooks';
 
 function BookDeatils() {
+    const modalShow = (e) => {
+        let modal = document.querySelector(".modal");
+        modal.style.display = "block";
+        // console.log(modal.querySelector(".modal-image"));
+        modal.querySelector(".modal-image").src = e.src;
+        modal.querySelector("#caption").innerHTML = e.alt;
+        document.body.style.overflow = "hidden";
+    }
+
+    const modalClose = () => {
+        document.querySelector(".modal-image").src= null;
+        document.querySelector(".modal").style.display = "none";
+    }
+
     return (
         <div className="content-wrap" style={{transform: "none"}}>
             <div className="container" style={{transform: "none"}}>
@@ -12,6 +26,7 @@ function BookDeatils() {
                         <div className="book-image-container">
                             <div>
                                 <img
+                                    onClick={(e) => {modalShow(e.target)}}
                                     className="book-details-image"
                                     alt="Database Management System"
                                     loading="lazy"
