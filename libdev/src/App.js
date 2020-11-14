@@ -11,6 +11,20 @@ function App() {
   const ScrollTop = () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
+
+  const modalClose = () => {
+    document.querySelector(".modal-image").src= null;
+    document.querySelector(".modal").style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+
+  window.onClick = function(event) {
+    console.log(event);
+    if(event.target == document.querySelector(".modal")) {
+      modalClose();
+    }
+  }
+
   return (
     <Router>
       <div className="app">
@@ -20,6 +34,11 @@ function App() {
         <Header/>
         <Content/>
         <Footer/>
+        <div className="modal">
+          <span id="modal-close" onClick={modalClose}>&times;</span>
+          <img className="modal-image" id="modal-image"/>
+          <div id="caption"></div>
+        </div>
       </div>
     </Router>
   );
