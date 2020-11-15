@@ -30,7 +30,7 @@ function PreferredTopics() {
                     <div className="thunk-topic-wrap">
                         <div className="thunk-topic">
                             <div className="thunk-topic-image">
-                                <a href="" className="topic-link">
+                                <a href="/subject" className="topic-link">
                                     <img
                                         src="https://pbs.twimg.com/profile_images/689406770607882240/7VEZDCfD_400x400.jpg"
                                     />
@@ -41,7 +41,7 @@ function PreferredTopics() {
                     <div className="thunk-topic-wrap">
                         <div className="thunk-topic">
                             <div className="thunk-topic-image">
-                                <a href="" className="topic-link">
+                                <a href="/subject" className="topic-link">
                                     <img
                                         src="https://pbs.twimg.com/profile_images/689406770607882240/7VEZDCfD_400x400.jpg"
                                     />
@@ -52,7 +52,7 @@ function PreferredTopics() {
                     <div className="thunk-topic-wrap">
                         <div className="thunk-topic">
                             <div className="thunk-topic-image">
-                                <a href="" className="topic-link">
+                                <a href="/subject" className="topic-link">
                                     <img
                                         src="https://pbs.twimg.com/profile_images/689406770607882240/7VEZDCfD_400x400.jpg"
                                     />
@@ -63,7 +63,7 @@ function PreferredTopics() {
                     <div className="thunk-topic-wrap">
                         <div className="thunk-topic">
                             <div className="thunk-topic-image">
-                                <a href="" className="topic-link">
+                                <a href="/subject" className="topic-link">
                                     <img
                                         src="https://pbs.twimg.com/profile_images/689406770607882240/7VEZDCfD_400x400.jpg"
                                     />

@@ -3,7 +3,6 @@ import './Sidebar.css';
 
 function Sidebar() {
     const openMenu = () => {
-        // document.querySelector(".toggle-icon").classList.toggle("icon-circle-arrow-down");
         document.getElementById("product-cat-list").classList.toggle("hide-product-cat-list");
         document.getElementById("toggle-icon").classList.toggle("icon-circle-arrow-down");
     }
@@ -25,13 +24,13 @@ function Sidebar() {
                         </div>
                         <ul id="product-cat-list" className="product-cat-list">
                             <li className="cat-item cat-item-1">
-                                <a href="">Category 1</a>
+                                <a href="/subject">Category 1</a>
                             </li>
                             <li className="cat-item cat-item-2">
-                                <a href="">Category 2</a>
+                                <a href="/subject">Category 2</a>
                             </li>
                             <li className="cat-item cat-item-1">
-                                <a href="">Category 1</a>
+                                <a href="/subject">Category 1</a>
                             </li>
                             <li className="cat-item cat-item-3">
                                 <a href="/all-category">. . . All Category</a>

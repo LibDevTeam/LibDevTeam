@@ -83,7 +83,7 @@ function AllCategory() {
                             <div className="category-table-content">
                                 <ul>
                                     <li>
-                                        <a>Subject1</a>
+                                        <a href="/subject">Subject1</a>
                                     </li>
                                     <li>
                                         <a>Subject1</a>

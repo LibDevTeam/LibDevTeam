@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import BookDeatils from './BookDeatils';
 import AllCategory from './AllCategory';
+import SubjectDetail from './SubjectDetail';
 
 function Content() {
     return (
@@ -17,6 +18,9 @@ function Content() {
                 </Route>
                 <Route path="/all-category">
                     <AllCategory/>
+                </Route>
+                <Route path="/subject">
+                    <SubjectDetail/>
                 </Route>
             </Switch>
         </div>
