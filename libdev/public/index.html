@@ -64,6 +64,14 @@ crossorigin="anonymous">
         if(event.target == document.querySelector(".modal")) {
           document.querySelector(".modal-image").src= null;
           document.querySelector(".modal").style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+      }
+      document.onkeydown = function(event) {
+        if(event.keyCode == 27) {
+          document.querySelector(".modal-image").src= null;
+          document.querySelector(".modal").style.display = "none";
+          document.body.style.overflow = "auto";
         }
       }
     </script>
