@@ -1,0 +1,142 @@
+.container .book-list-items ul {
+    margin: 0px;
+    padding: 0px;
+    background: #fff;
+}
+
+.container .book-list-items ul li {
+    vertical-align: top;
+    display: inline-block;
+    width: 25%;
+    list-style-type: none;
+}
+
+.book-list-items .trendingProduct {
+    position: relative;
+    padding: 0;
+    display: inline-block;
+    background: white;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+
+.book-list-items .trendingProduct .product-card {
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 40;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    background: white;
+    border: solid 0.9px transparent;
+    transition: all 0.7s ease;
+    position: relative;
+}
+
+.book-list-items .trendingProduct .product-card:hover {
+    z-index: 50;
+    border-radius: 3px;
+    text-decoration: none;
+    box-shadow: 0 7px 17px 0 rgba(23,84,116,0.18);
+    border: solid 0.9px #f3f3f3;
+    transition: all .7s ease;
+}
+
+.book-list-items .trendingProduct .product-card:hover .product-img>img {
+    -webkit-transform: scale(1.1);
+    transition: all 0.5s ease;
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.book-list-items .trendingProduct .product-card:hover .product-name {
+    color: #c7511f;
+    transition: all 0.3s ease;
+}
+
+.book-list-items .trendingProduct .product-card .product-img {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 5px 0px rgb(0,0,0,0.6);
+}
+
+.book-list-items .trendingProduct .product-card .product-img img {
+    max-width: 100%;
+    display: block;
+    max-height: 100%;
+    height: auto !important;
+    width: auto;
+    transition: all 0.5s ease;
+}
+
+.book-list-items .trendingProduct .product-card .product-name {
+    color: #212121;
+    max-height: 36px;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-height: 18px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.book-list-items .trendingProduct .product-card .product-author {
+    margin-top: 10px;
+    color: #999;
+    max-height: 34px;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-height: 17px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 12px;
+    text-align: center;
+}
+
+.container ul.thunk-breadcrumb {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    list-style-type: disc;
+}
+
+.container ul.thunk-breadcrumb li.trail-item {
+    list-style-type: none;
+    font-size: 12px;
+    color: #878787;
+    display: inline-block;
+}
+
+.container ul.thunk-breadcrumb li a {
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.thunk-breadcrumb li+li::before {
+    padding: 5px;
+    content: "/\00a0";
+}
+
+@media (max-width: 767px) {
+    .container .book-list-items ul li {
+        width: 33.3%;
+    }
+}
+
+@media (max-width: 430px) {
+    .container .book-list-items ul li {
+        width: 50%;
+    }
+}

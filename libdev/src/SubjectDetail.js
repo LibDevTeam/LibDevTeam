@@ -48,14 +48,59 @@ export default class SubjectDetail extends Component {
     }
     render() {
         return (
-            <div>
-                <ul>
-                    {
-                        this.state.contacts.map(contact => <li className="listli" style={{height: "90px"}} key={contact.id}>
-                            <div>hii</div>
-                        </li>)
-                    }
-                </ul>
+            <div className="content-wrap" style={{transform: "none"}}>
+                <div className="container" style={{transform: "none"}}>
+                    <div className="main-area disable-right-sidebar" style={{transform: "none"}}></div>
+                        <ul className="thunk-breadcrumb trail-items">
+                            <li className="trail-item trail-begin">
+                                <a href="/">
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li className="trail-item">
+                                <a href="/all-category">
+                                    <span>All Subjects</span>
+                                </a>
+                            </li>
+                            <li className="trail-item">
+                                <a href="/all-category#category-table-cse">
+                                    <span>CSE</span>
+                                </a>
+                            </li>
+                            <li className="trail-item trail-end">
+                                <a>
+                                    <span>Database Management System</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div className="book-list-items">
+                            <ul>
+                                {
+                                    this.state.contacts.map(contact => 
+                                    <li className="listli">
+                                        <div className="trendingProduct">
+                                            <a className="product-card" href="">
+                                                <div className="product-img">
+                                                    <img
+                                                        className="wooble"
+                                                        src="https://images-na.ssl-images-amazon.com/images/I/514nzbCsaaL._SX352_BO1,204,203,200_.jpg"
+                                                    />
+                                                </div>
+                                                <div className="stats-container">
+                                                    <div className="product-name">Book Name</div>
+                                                    <div className="product-author">
+                                                        <div>
+                                                            <span className="author-name">Author Name</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>)
+                                }
+                            </ul>
+                        </div>
+                    </div>
             </div>
         )
     }
