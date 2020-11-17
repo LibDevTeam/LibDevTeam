@@ -46,35 +46,89 @@ export default class SubjectDetail extends Component {
             scrolling: true,
         }), this.loadContacts)
     }
+
+    showOptions() {
+        // if(document.querySelector(".book-list-items>.subject-1stLine>.sorting-sec>ul").className == "sort-value hidden") {
+        //     document.querySelector(".book-list-items>.subject-1stLine>.sorting-sec>ul").className = "sort-value";
+        // }
+        console.log('yet to be declared');
+    }
+
     render() {
         return (
             <div className="content-wrap" style={{transform: "none"}}>
                 <div className="container" style={{transform: "none"}}>
-                    <div className="main-area disable-right-sidebar" style={{transform: "none"}}></div>
-                        <ul className="thunk-breadcrumb trail-items">
-                            <li className="trail-item trail-begin">
-                                <a href="/">
-                                    <span>Home</span>
-                                </a>
-                            </li>
-                            <li className="trail-item">
-                                <a href="/all-category">
-                                    <span>All Subjects</span>
-                                </a>
-                            </li>
-                            <li className="trail-item">
-                                <a href="/all-category#category-table-cse">
-                                    <span>CSE</span>
-                                </a>
-                            </li>
-                            <li className="trail-item trail-end">
-                                <a>
-                                    <span>Database Management System</span>
-                                </a>
-                            </li>
-                        </ul>
+                    <div className="main-area disable-right-sidebar" style={{transform: "none"}}>
+                        <div className="subject-header">
+                            <div className="subject-heading">
+                                    <h1>DBMS</h1>
+                                </div>
+                            <ul className="thunk-breadcrumb trail-items">
+                                <li className="trail-item trail-begin">
+                                    <a href="/">
+                                        <span>Home</span>
+                                    </a>
+                                </li>
+                                <li className="trail-item">
+                                    <a href="/all-category">
+                                        <span>All Subjects</span>
+                                    </a>
+                                </li>
+                                <li className="trail-item">
+                                    <a href="/all-category#category-table-cse">
+                                        <span>CSE</span>
+                                    </a>
+                                </li>
+                                <li className="trail-item trail-end">
+                                    <a>
+                                        <span>Database Management System</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                         <div className="book-list-items">
-                            <ul>
+                            <div className="subject-1stLine">
+                                <h1 className="category-name">
+                                    Results
+                                    <span className="category-count">(xyz items)</span>
+                                </h1>
+                                <div className="searchBox">
+                                    <input
+                                        type="text"
+                                        placeholder="Search within category"
+                                        id="searchWithinSearch"
+                                        className="sd-input"
+                                    />
+                                    <div id="swsIco">
+                                        <span>
+                                            <i className="fa fa-search"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="sorting-sec animBounce">
+                                    <div className="sort-drop clearfix" onClick={this.showOptions}>
+                                        <span className="sort-label">Sort by:</span>
+                                        <div className="sort-selected">Alphabetical</div>
+                                        <i className="fa fa-angle-down"></i>
+                                    </div>
+                                    <ul className="sort-value hidden" style={{zIndex: "77"}}>
+                                        <li className="search-li sort-active">
+                                            <span className="arrow"></span>
+                                            Alphabetical
+                                        </li>
+                                        <li className="search-li sort-active">
+                                            <span className="arrow"></span>
+                                            Date new to old
+                                        </li>
+                                        <li className="search-li sort-active">
+                                            <span className="arrow"></span>
+                                            Date old to new
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="clear-border"></div>
+                            <ul className="book-content">
                                 {
                                     this.state.contacts.map(contact => 
                                     <li className="listli">
@@ -101,6 +155,7 @@ export default class SubjectDetail extends Component {
                             </ul>
                         </div>
                     </div>
+                </div>
             </div>
         )
     }

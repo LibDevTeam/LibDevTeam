@@ -1,10 +1,244 @@
-.container .book-list-items ul {
-    margin: 0px;
+.container .book-list-items {
+    padding-top: 15px;
+}
+
+.container .subject-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.container .book-list-items {
+    background: #fff;
+    width: 100%;
+}
+
+.container .book-list-items .subject-1stLine {
+    padding: 0 15px 10px;
+    clear: both;
+    font-size: 22px;
+}
+
+.container .book-list-items .subject-1stLine::before,
+.container .book-list-items .subject-1stLine::after {
+    content: " ";
+    display: table;
+}
+
+.container .book-list-items .subject-1stLine::after {
+    content:  " ";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.container .book-list-items .subject-1stLine>h1 {
+    color: #5a5a59;
+    float: left;
+    margin-top: 13px;
+    margin-bottom: 0px;
+    font-size: 23px;
+    max-width: 46%;
+}
+
+.container .book-list-items .subject-1stLine>h1>span {
+    color: #999;
+    margin-left: 5px;
+    font-size: 13px;
+    vertical-align: 2px;
+}
+
+.container .book-list-items .subject-1stLine .searchBox {
+    margin-top: 14px;
+    position: relative;
+    margin-left: 2%;
+    border-left: 1px solid #e5e5e5;
+    padding-left: 2%;
+    font-size: 14px;
+    height: 20px;
+    max-width: 20%;
+    float: left;
+}
+
+.container .book-list-items .subject-1stLine .searchBox input {
+    width: 100%;
+    padding-left: 18px;
+    color: #999;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    transition: all .15s ease-in-out;
+    padding-bottom: 8px;
+    line-height: inherit;
+    border: 0 none;
+}
+
+.container .book-list-items .subject-1stLine .searchBox #swsIco {
+    cursor: default;
+    position: absolute;
+    left: 16px;
+    top: 0;
+    color: #999;
+    font-size: 20px;
+}
+
+.container .book-list-items .subject-1stLine .searchBox #swsIco span i {
+    width: 1em;
+    display: inline-block;
+    text-align: center;
+    font-style: normal;
+    font-weight: 200;
+    font-variant: normal;
+    line-height: 1;
+    text-decoration: inherit;
+    font-size: 15px;
+}
+
+.container .book-list-items .subject-1stLine .sorting-sec {
+    width: 230px;
+    float: right;
+    margin-top: 2px;
+}
+
+.container .book-list-items .subject-1stLine .sorting-sec .sort-drop {
+    position: relative;
+    width: 230px;
+    border: 1px solid #e8e8e8;
+    padding: 12px 12px 12px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    clear: both;
+    line-height: 13px;
+}
+
+.container .book-list-items .subject-1stLine .sorting-sec .sort-drop::before,
+.container .book-list-items .subject-1stLine .sorting-sec .sort-drop::after {
+    content: " ";
+    display: table;
+}
+
+.container .book-list-items .subject-1stLine .sorting-sec .sort-drop::after {
+    content: " ";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.container .book-list-items .subject-1stLine .sorting-sec .sort-drop .sort-label {
+    color: #999;
+    font-size: 13px;
+    float: left;
+    margin-right: 10px;
+    padding-left: 4px;
+    cursor: pointer;
+}
+
+.container .book-list-items .subject-1stLine .sorting-sec .sort-drop .sort-selected {
+    font-size: 13px;
+    float: left;
+    width: 62%;
+}
+
+.container .book-list-items .subject-1stLine .sorting-sec .sort-drop i {
+    color: #999;
+    font-size: 13px;
+    float: right;
+    margin-top: -1px;
+    width: 1em;
+    /* display: inline-block; */
+    text-align: center;
+}
+
+.container .book-list-items .subject-1stLine .sorting-sec ul.sort-value {
+    cursor: pointer;
+    float: right;
+    font-size: 12px;
+    box-shadow: 0 1px 6px 1px rgba(0,0,0,0.1);
+    margin-top: 3px;
+    width: 166px;
+    color: #999;
+    position: absolute;
+    background: #fff;
+    right: 1.5%;
+    border: 1px solid #e8e8e8;
+    list-style: none;
     padding: 0px;
+    margin-bottom: 0px;
+}
+
+.container .book-list-items .subject-1stLine .sorting-sec ul.hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.container .book-list-items .subject-1stLine .sorting-sec ul.sort-value li {
+    padding: 13px 15px;
+    vertical-align: baseline;
+    margin: 0;
+    display: list-item;
+}
+
+.container .book-list-items .subject-1stLine .sorting-sec ul.sort-value li:hover {
+    background: #f7f7f7;
+}
+
+.container .book-list-items .subject-1stLine .sorting-sec ul.sort-value li .arrow {
+    position: absolute;
+    top: -27px;
+    right: 6px;
+}
+
+.container .book-list-items .subject-1stLine .sorting-sec ul.sort-value li .arrow::before {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 10px solid #e8e8e8;
+    content: '';
+}
+
+.container .book-list-items .subject-1stLine .sorting-sec ul.sort-value li .arrow::after {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 8px solid #fff;
+    content: '';
+    position: relative;
+    top: 2px;
+    left: -14px;
+}
+
+.container .book-list-items .clear-border {
+    border-bottom: 1px solid #e5e5e5;
+    height: 2px;
+    padding: 3px 0;
+    margin: 0 15px;
+    clear: both;
+}
+
+.container .subject-header .subject-heading {
+    /* padding: 0 15px 10px; */
+    width: 70%;
+    clear: both;
+    font-size: 22px;
+}
+
+.container .subject-header .subject-heading h1 {
+    color: #5a5a59;
+    float: left;
+    margin-top: 0px;
+    font-size: 23px;
+    /* max-width: 46%; */
+}
+
+.container .book-list-items ul.book-content {
+    margin: 0px;
+    padding-bottom: 0px;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     background: #fff;
 }
 
-.container .book-list-items ul li {
+.container .book-list-items ul.book-content li {
     vertical-align: top;
     display: inline-block;
     width: 25%;
@@ -104,8 +338,9 @@
     margin: 0;
     padding: 0;
     display: flex;
-    width: 100%;
+    width: 30%;
     list-style-type: disc;
+    float: right;
 }
 
 .container ul.thunk-breadcrumb li.trail-item {
