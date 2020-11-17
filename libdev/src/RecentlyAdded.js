@@ -48,11 +48,14 @@ function RecentlyAdded() {
                     </div>
                     <div className="trendingProduct">
                         <a className="product-card" href="">
-                            <div className="product-img">
+                            <div className="product-img product-na">
                                 <img
                                     className="wooble"
                                     src="https://images-na.ssl-images-amazon.com/images/I/514nzbCsaaL._SX352_BO1,204,203,200_.jpg"
                                 />
+                                <div className="not-available-container">
+                                    <span>Not available</span>
+                                </div>
                             </div>
                             <div className="stats-container">
                                 <div className="product-name">Product Name</div>
