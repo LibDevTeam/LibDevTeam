@@ -44,7 +44,7 @@ function Header() {
                                     <div className="sider-inner">
                                         <ul id="top-store-stick-menu" className="top-store-menu" data-style-menu="horizontal">
                                             <li>
-                                                <a href="/">
+                                                <a href="/account/orders">
                                                     <span className="top-store-menu-link">My orders</span>
                                                 </a>
                                             </li>
@@ -74,14 +74,22 @@ function Header() {
                                     <a className="prd-search" href="#">
                                         <i className="fa fa-search"></i>
                                     </a>
-                                    <a className="wishlist" href="">
+                                    <a className="wishlist" href="/account/wishlist">
                                         <i className="fa fa-heart-o"></i>
                                     </a>
                                     <span>
-                                        <a href="">
+                                        <a href="/account" className="myaccount-hover">
                                             <span className="account-text">Login / Signup</span>
                                             <span className="account-text">My account</span>
                                             <i className="fa fa-lock" aria-hidden="true"></i>
+                                            <div className="account-dropdown">
+                                                <div className="clip"></div>
+                                                <a href="/account">My Account</a>
+                                                <a href="/account/cards">Card Details</a>
+                                                <a href="/account/wishlist">My Wishlist</a>
+                                                <a href="/account/orders">Orders</a>
+                                                <a>Logout</a>
+                                            </div>
                                         </a>
                                     </span>
                                     <div className="cart-icon">
@@ -156,15 +164,23 @@ function Header() {
                         <div className="main-header-col3">
                             <div className="thunk-icon-market">
                                 <div className="header-icon">
-                                    <a className="wishlist" href="">
+                                    <a className="wishlist" href="/account/wishlist">
                                         <span className="th-wishlist-text">My Favourite</span>
                                         <span>Wishlist</span>
                                         <i className="fa fa-heart-o" aria-hidden="true"></i>
                                     </a>
-                                    <a href="\">
+                                    <a className="myaccount-hover">
                                         <span className="account-text">Login / SignUp</span>
                                         <span className="account-text">My account</span>
                                         <i className="fa fa-lock" aria-hidden="true"></i>
+                                        <div className="account-dropdown">
+                                            <div className="clip"></div>
+                                            <a href="/account">My Account</a>
+                                            <a href="/account/cards">Card Details</a>
+                                            <a href="/account/wishlist">My Wishlist</a>
+                                            <a href="/account/orders">Orders</a>
+                                            <a>Logout</a>
+                                        </div>
                                     </a>
                                 </div>
                                 <div className="cart-icon">
@@ -231,7 +247,7 @@ function Header() {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="">
+                                                <a href="/account/orders">
                                                     <span className="top-store-menu-link">My orders</span>
                                                 </a>
                                             </li>

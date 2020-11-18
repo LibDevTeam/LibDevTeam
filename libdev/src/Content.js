@@ -5,6 +5,7 @@ import Home from './Home';
 import BookDeatils from './BookDeatils';
 import AllCategory from './AllCategory';
 import SubjectDetail from './SubjectDetail';
+import MyAccount from './MyAccount';
 
 function Content() {
     return (
@@ -21,6 +22,9 @@ function Content() {
                 </Route>
                 <Route path="/subject">
                     <SubjectDetail/>
+                </Route>
+                <Route path="/account">
+                    <MyAccount/>
                 </Route>
             </Switch>
         </div>
