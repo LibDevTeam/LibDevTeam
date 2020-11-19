@@ -26,6 +26,9 @@ function Content() {
                 <Route path="/account">
                     <MyAccount/>
                 </Route>
+                <Route>
+                    <div>Page Not Found</div>
+                </Route>
             </Switch>
         </div>
     )

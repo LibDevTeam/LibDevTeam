@@ -158,6 +158,7 @@
     max-height: 0;
     overflow: hidden;
     z-index: 1000;
+    border-radius: 3px;
 }
 
 .main-header .main-header-bar .main-header-col3 .thunk-icon-market .header-icon a.myaccount-hover div.account-dropdown a {

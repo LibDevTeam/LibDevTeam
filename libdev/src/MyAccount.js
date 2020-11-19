@@ -2,6 +2,7 @@ import React from 'react';
 import './MyAccount.css';
 import { Switch, Route } from 'react-router-dom';
 import Wishlist from './Wishlist';
+import Orders from './Orders';
 
 function MyAccount() {
     return (
@@ -60,10 +61,13 @@ function MyAccount() {
                                 <Wishlist/>
                             </Route>
                             <Route path="/account/orders">
-                                <div>Orders</div>
+                                <Orders/>
                             </Route>
                             <Route path="/account/cards">
                                 <div>Cards</div>
+                            </Route>
+                            <Route>
+                                <div>Page Not Found</div>
                             </Route>
                         </Switch>
                     </div>

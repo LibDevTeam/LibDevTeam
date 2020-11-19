@@ -223,6 +223,7 @@
     max-height: 0;
     overflow: hidden;
     z-index: 1000;
+    border-radius: 3px;
 }
 
 .sticky-header-col3>.thunk-icon>.header-icon a.myaccount-hover div.account-dropdown a {
