@@ -6,6 +6,7 @@ import BookDeatils from './BookDeatils';
 import AllCategory from './AllCategory';
 import SubjectDetail from './SubjectDetail';
 import MyAccount from './MyAccount';
+import PendingBooks from './PendingBooks';
 
 function Content() {
     return (
@@ -25,6 +26,9 @@ function Content() {
                 </Route>
                 <Route path="/account">
                     <MyAccount/>
+                </Route>
+                <Route path="/pending">
+                    <PendingBooks/>
                 </Route>
                 <Route>
                     <div>Page Not Found</div>

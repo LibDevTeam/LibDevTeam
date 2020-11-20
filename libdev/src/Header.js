@@ -93,7 +93,7 @@ function Header() {
                                         </a>
                                     </span>
                                     <div className="cart-icon">
-                                        <a className="cart-contents" href="" title="See your orders">
+                                        <a className="cart-contents" href="\pending" title="See your orders">
                                             <i className="fa fa-shopping-basket"></i>
                                             <span className="cart-content">
                                                 <span className="count-item">1</span>
@@ -184,7 +184,7 @@ function Header() {
                                     </a>
                                 </div>
                                 <div className="cart-icon">
-                                    <a className="cart-contents" href="" title="Check your orders">
+                                    <a className="cart-contents" href="\pending" title="Check your orders">
                                         <i className="fa fa-shopping-basket"></i>
                                         <span className="cart-content">
                                             <span className="count-item">0</span>

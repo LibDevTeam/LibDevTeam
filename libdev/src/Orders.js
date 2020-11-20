@@ -14,7 +14,7 @@ export default class Orders extends Component {
                             <div className="order-id">
                                 Order ID: 21976000065
                                 <span className="order-details-button">
-                                    <a>
+                                    <a href="\orderDetails">
                                         <span>DETAILS</span>
                                     </a>
                                 </span>
@@ -45,7 +45,7 @@ export default class Orders extends Component {
                             <div className="order-id">
                                 Order ID: 21976000065
                                 <span className="order-details-button">
-                                    <a>
+                                    <a href="\orderDetails">
                                         <span>DETAILS</span>
                                     </a>
                                 </span>
@@ -76,7 +76,7 @@ export default class Orders extends Component {
                             <div className="order-id">
                                 Order ID: 21976000065
                                 <span className="order-details-button">
-                                    <a>
+                                    <a href="\orderDetails">
                                         <span>DETAILS</span>
                                     </a>
                                 </span>
@@ -107,7 +107,7 @@ export default class Orders extends Component {
                             <div className="order-id">
                                 Order ID: 21976000065
                                 <span className="order-details-button">
-                                    <a>
+                                    <a href="\orderDetails">
                                         <span>DETAILS</span>
                                     </a>
                                 </span>
