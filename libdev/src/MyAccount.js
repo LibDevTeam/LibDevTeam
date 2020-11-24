@@ -14,6 +14,7 @@ function MyAccount() {
                             <div className="navbar-div1">
                                 <div className="welcome-container">
                                     <img
+                                        alt="Profile Pic"
                                         className="profile-pic"
                                         src="//img1a.flixcart.com/www/linchpin/fk-cp-zion/img/profile-pic-male_4811a1.svg"
                                     />

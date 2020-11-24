@@ -6,7 +6,7 @@ import './Header(Below).css';
 function Header() {
     return (
         <div>
-            <a className="skip-link screen-reader-text">Skip to content</a>
+            <a href="/" className="skip-link screen-reader-text">Skip to content</a>
             <div className="sticky-header">
                 <div className="container">
                     <div className="sticky-header-bar thnk-col-3">
@@ -88,7 +88,7 @@ function Header() {
                                                 <a href="/account/cards">Card Details</a>
                                                 <a href="/account/wishlist">My Wishlist</a>
                                                 <a href="/account/orders">Orders</a>
-                                                <a>Logout</a>
+                                                <a href="/">Logout</a>
                                             </div>
                                         </a>
                                     </span>

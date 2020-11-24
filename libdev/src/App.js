@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'; 
+import React from 'react'; 
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import Content from './Content';
 import Footer from './Footer';
 import Header from './Header';
@@ -20,7 +20,7 @@ function App() {
 
   window.onClick = function(event) {
     console.log(event);
-    if(event.target == document.querySelector(".modal")) {
+    if(event.target === document.querySelector(".modal")) {
       modalClose();
     }
   }
@@ -28,7 +28,7 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <a id="move-to-top" onClick={ScrollTop} className="move-to-top-hide">
+        <a href="" id="move-to-top" onClick={ScrollTop} className="move-to-top-hide">
           <i className="fa fa-angle-up"></i>
         </a>
         <Header/>

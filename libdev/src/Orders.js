@@ -25,7 +25,7 @@ export default class Orders extends Component {
                             <div className="order-product-details">
                                 <div>
                                     <div className="order-product-image">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/I/712XlaVQ8OL.jpg"/>
+                                        <img alt="Ordered Product" src="https://images-na.ssl-images-amazon.com/images/I/712XlaVQ8OL.jpg"/>
                                     </div>
                                     <div className="order-product-summary">
                                         <span className="order-product-title">Database Management System</span>
@@ -45,7 +45,7 @@ export default class Orders extends Component {
                             <div className="order-id">
                                 Order ID: 21976000065
                                 <span className="order-details-button">
-                                    <a href="\orderDetails">
+                                    <a href="/orderDetails">
                                         <span>DETAILS</span>
                                     </a>
                                 </span>
@@ -56,7 +56,7 @@ export default class Orders extends Component {
                             <div className="order-product-details">
                                 <div>
                                     <div className="order-product-image">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/I/712XlaVQ8OL.jpg"/>
+                                        <img at="ordered-product" src="https://images-na.ssl-images-amazon.com/images/I/712XlaVQ8OL.jpg"/>
                                     </div>
                                     <div className="order-product-summary">
                                         <span className="order-product-title">Database Management System</span>

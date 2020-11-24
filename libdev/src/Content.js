@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import BookDeatils from './BookDeatils';
 import AllCategory from './AllCategory';

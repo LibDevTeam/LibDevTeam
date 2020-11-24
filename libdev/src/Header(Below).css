@@ -114,6 +114,7 @@
 
 @media (max-width: 1024px) {
     .below-header>.container>.below-header-bar>.below-header-col1>nav>.sider>.menu-close {
+        display: none !important;
         margin: 10px;
         width: 14px;
         display: block;
