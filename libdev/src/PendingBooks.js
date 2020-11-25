@@ -34,7 +34,7 @@ function PendingBooks() {
                                     <div className="order-product-details">
                                         <div>
                                             <div className="order-product-image">
-                                                <img src="https://images-na.ssl-images-amazon.com/images/I/712XlaVQ8OL.jpg"/>
+                                                <img alt="ordered-product" src="https://images-na.ssl-images-amazon.com/images/I/712XlaVQ8OL.jpg"/>
                                             </div>
                                             <div className="order-product-summary">
                                                 <span className="order-product-title">Database Management System</span>
@@ -70,7 +70,7 @@ function PendingBooks() {
                                     <div className="order-product-details">
                                         <div>
                                             <div className="order-product-image">
-                                                <img src="https://images-na.ssl-images-amazon.com/images/I/712XlaVQ8OL.jpg"/>
+                                                <img alt="ordered-product" src="https://images-na.ssl-images-amazon.com/images/I/712XlaVQ8OL.jpg"/>
                                             </div>
                                             <div className="order-product-summary">
                                                 <span className="order-product-title">Database Management System aladin madafaka yo bitches</span>
@@ -106,7 +106,7 @@ function PendingBooks() {
                                     <div className="order-product-details">
                                         <div>
                                             <div className="order-product-image">
-                                                <img src="https://images-na.ssl-images-amazon.com/images/I/712XlaVQ8OL.jpg"/>
+                                                <img alt="ordered-product" src="https://images-na.ssl-images-amazon.com/images/I/712XlaVQ8OL.jpg"/>
                                             </div>
                                             <div className="order-product-summary">
                                                 <span className="order-product-title">Database Management System</span>

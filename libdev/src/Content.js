@@ -21,7 +21,7 @@ function Content() {
                 <Route path="/all-category">
                     <AllCategory/>
                 </Route>
-                <Route path="/subject">
+                <Route path="/subject/:subjectId">
                     <SubjectDetail/>
                 </Route>
                 <Route path="/account">

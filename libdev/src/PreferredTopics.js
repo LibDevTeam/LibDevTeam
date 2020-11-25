@@ -33,6 +33,7 @@ function PreferredTopics() {
                                 <a href="/subject" className="topic-link">
                                     <img
                                         src="https://pbs.twimg.com/profile_images/689406770607882240/7VEZDCfD_400x400.jpg"
+                                        alt="topic"
                                     />
                                 </a>
                             </div>
@@ -42,7 +43,7 @@ function PreferredTopics() {
                         <div className="thunk-topic">
                             <div className="thunk-topic-image">
                                 <a href="/subject" className="topic-link">
-                                    <img
+                                    <img alt="topic"
                                         src="https://pbs.twimg.com/profile_images/689406770607882240/7VEZDCfD_400x400.jpg"
                                     />
                                 </a>
@@ -53,7 +54,7 @@ function PreferredTopics() {
                         <div className="thunk-topic">
                             <div className="thunk-topic-image">
                                 <a href="/subject" className="topic-link">
-                                    <img
+                                    <img alt="topic"
                                         src="https://pbs.twimg.com/profile_images/689406770607882240/7VEZDCfD_400x400.jpg"
                                     />
                                 </a>
@@ -64,7 +65,7 @@ function PreferredTopics() {
                         <div className="thunk-topic">
                             <div className="thunk-topic-image">
                                 <a href="/subject" className="topic-link">
-                                    <img
+                                    <img alt="topic"
                                         src="https://pbs.twimg.com/profile_images/689406770607882240/7VEZDCfD_400x400.jpg"
                                     />
                                 </a>
