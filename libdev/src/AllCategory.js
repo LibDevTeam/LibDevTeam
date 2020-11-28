@@ -52,7 +52,7 @@ function AllCategory() {
                                             {
                                                 dept.subjects.map((subject) => (
                                                     <li>
-                                                        <a href="/subject">{subject.properties.name}</a>
+                                                        <a href={`/subject/${subject.identity.low}`}>{subject.properties.name}</a>
                                                     </li>
                                                 ))
                                             }

@@ -356,6 +356,19 @@
     display: inline-block;
 }
 
+.container ul.thunk-breadcrumb li.trail-end {
+    cursor: default !important;
+}
+
+.container ul.thunk-breadcrumb li.trail-end a:hover {
+    color: #878787 !important;
+    cursor: default !important;
+}
+
+.container ul.thunk-breadcrumb li.trail-item-dept {
+    text-transform: uppercase;
+}
+
 .container ul.thunk-breadcrumb li a {
     max-width: 120px;
     white-space: nowrap;

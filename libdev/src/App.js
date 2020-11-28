@@ -36,7 +36,7 @@ function App() {
         <Footer/>
         <div className="modal">
           <span id="modal-close" onClick={modalClose}>&times;</span>
-          <img className="modal-image" id="modal-image"/>
+          <img alt="modal-image" className="modal-image" id="modal-image"/>
           <div id="caption"></div>
         </div>
       </div>

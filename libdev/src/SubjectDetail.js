@@ -1,35 +1,66 @@
 import React, { useEffect, useState } from 'react';
 import './SubjectDetail.css';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function SubjectDetail() {
-    const [page,setPage] = useState(0);
-    const [users, setUsers] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [per] = useState(20);
+    const { subjectId } = useParams();
+    const [page, setPage] = useState(0);
+    const [books, setBooks] = useState([]);
+    const [initialLoading,setInitialLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [per, setPer] = useState(20);
+    const [totalPage, setTotalPage] = useState(0);
+    const [data, setData] = useState({
+        subjectId: "Subject id",
+        subjectName: "Subject Name",
+        subjectImg: "Subject img",
+        subjectBookCount: "number",
+        dept: {
+            id: "Dept. id",
+            name: "Dept. name",
+            code: "Dept. code"
+        }
+    });
 
     const handleScroll = (e) => {
         const scrollUl = document.querySelector('ul.book-content');
         const lastLiOffset = scrollUl.offsetTop + scrollUl.clientHeight;
         const pageOffset = window.pageYOffset + window.innerHeight;
         var bottomOffset = -140;
-        if(pageOffset > lastLiOffset - bottomOffset) {
+        if(pageOffset > lastLiOffset - bottomOffset && page <= totalPage) {
             loadMore();
         }
     }
 
     useEffect(() => {
+        const fetchData = async () => {
+            await fetch(`/api/v1/get/subject?subjectId=${subjectId}`)
+            .then(response => response.json())
+            .then(apiData => {
+                setData(apiData);
+                setTotalPage(Math.ceil(apiData.subjectBookCount/per));
+                setInitialLoading(false);
+                setLoading(true);
+            })
+        }
+        fetchData();
+        // console.log(data,totalPage,initialLoading,loading);
+    },[])
+
+    // console.log(loading);
+
+    useEffect(() => {
         const loadUsers = async () => {
             if(page > 0) {
-                const newUsers = await (await fetch(`https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=${per}`)).json();
-                setUsers(prev => [...prev, ...newUsers]);
+                const newUsers = await (await fetch(`/api/v1/get/books?subjectId=${subjectId}&page=${page}&limit=${per}`)).json();
+                setBooks(prev => [...prev, ...newUsers]);
                 setLoading(false);
             }
         }
         loadUsers();
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    },[page])
+    },[page,totalPage])
 
     useEffect(() => {
         if(!loading) return;
@@ -37,7 +68,9 @@ function SubjectDetail() {
     }, [loading]);
 
     const loadMore = () => {
+        // console.log('hi',loading);
         setLoading(true);
+        // console.log('hi',loading);
     }
 
     const showOptions = () => {
@@ -47,14 +80,16 @@ function SubjectDetail() {
         console.log('yet to be declared');
     }
 
+    if(initialLoading) return <div>Initial Loading...</div>
+
     return (
         <div className="content-wrap" style={{transform: "none"}}>
             <div className="container" style={{transform: "none"}}>
                 <div className="main-area disable-right-sidebar" style={{transform: "none"}}>
                     <div className="subject-header">
                         <div className="subject-heading">
-                                <h1>DBMS</h1>
-                            </div>
+                            <h1>{data.subjectName} <i style={{color: "#fdcc0d"}} className="fa fa-star" aria-hidden="true"></i></h1>
+                        </div>
                         <ul className="thunk-breadcrumb trail-items">
                             <li className="trail-item trail-begin">
                                 <a href="/">
@@ -66,14 +101,14 @@ function SubjectDetail() {
                                     <span>All Subjects</span>
                                 </a>
                             </li>
-                            <li className="trail-item">
-                                <a href="/all-category#category-table-cse">
-                                    <span>CSE</span>
+                            <li className="trail-item trail-item-dept">
+                                <a href={`/all-category#category-table-${data.dept.code}`}>
+                                    <span>{data.dept.code}</span>
                                 </a>
                             </li>
                             <li className="trail-item trail-end">
                                 <a>
-                                    <span>Database Management System</span>
+                                    <span>{data.subjectName}</span>
                                 </a>
                             </li>
                         </ul>
@@ -82,7 +117,7 @@ function SubjectDetail() {
                         <div className="subject-1stLine">
                             <h1 className="category-name">
                                 Results
-                                <span className="category-count">(xyz items)</span>
+                                <span className="category-count">({data.subjectBookCount} items)</span>
                             </h1>
                             <div className="searchBox">
                                 <input
@@ -121,22 +156,30 @@ function SubjectDetail() {
                         </div>
                         <div className="clear-border"></div>
                         <ul className="book-content">
+                            {data.subjectBookCount == 0 && !loading && <div style={{color: "#dd1c1c"}}>No book found. Go to <a href="/">Home Page</a></div>}
                             {
-                                users.map(contact => 
+                                books.map(book => 
                                 <li className="listli">
                                     <div className="trendingProduct">
-                                        <a className="product-card" href="">
+                                        <a className="product-card" href={`/book/${book.identity.low}`}>
                                             <div className="product-img">
                                                 <img
+                                                    loading="lazy"
+                                                    alt="book-image"
                                                     className="wooble"
-                                                    src="https://images-na.ssl-images-amazon.com/images/I/514nzbCsaaL._SX352_BO1,204,203,200_.jpg"
+                                                    src={book.properties.Image}
                                                 />
+                                                {book.properties.Count == 0  && 
+                                                    <div className="not-available-container">
+                                                        <span>Not available</span>
+                                                    </div>
+                                                }
                                             </div>
                                             <div className="stats-container">
-                                                <div className="product-name">Book Name</div>
+                                                <div className="product-name">{book.properties.Name}</div>
                                                 <div className="product-author">
                                                     <div>
-                                                        <span className="author-name">Author Name {contact.id}</span>
+                                                        <span className="author-name">{book.properties.Author}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -145,8 +188,8 @@ function SubjectDetail() {
                                 </li>)
                             }
                             {loading && <div>Loading......</div>}
+                            {page > totalPage && data.subjectBookCount != 0 && !loading && <div>No more results</div>}
                         </ul>
-                        <button onClick={loadMore}>Load more</button>
                     </div>
                 </div>
             </div>

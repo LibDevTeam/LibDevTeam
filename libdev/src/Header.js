@@ -179,7 +179,7 @@ function Header() {
                                             <a href="/account/cards">Card Details</a>
                                             <a href="/account/wishlist">My Wishlist</a>
                                             <a href="/account/orders">Orders</a>
-                                            <a>Logout</a>
+                                            <a href="/">Logout</a>
                                         </div>
                                     </a>
                                 </div>
@@ -220,7 +220,7 @@ function Header() {
                                 </div>
                                 <ul className="product-cat-list thunk-product-cat-list" style={{display: "none"}}>
                                     <li className="cat-item cat-item-63">
-                                        <a href="">Fiction</a>
+                                        <a href="/">Fiction</a>
                                     </li>
                                 </ul>
                             </div>
@@ -257,12 +257,12 @@ function Header() {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="">
+                                                <a href="/">
                                                     <span className="top-store-menu-link">Preferences</span>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="">
+                                                <a href="/contact-us">
                                                     <span className="top-store-menu-link">Contact Us</span>
                                                 </a>
                                             </li>

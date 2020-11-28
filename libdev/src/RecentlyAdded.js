@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import OwlCarousel from 'react-owl-carousel';
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import './RecentlyAdded.css';
 
 function RecentlyAdded() {
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        setLoading(true);
+        const fetchData = async () => {
+            await fetch('/api/v1/get/recentlyAddedBooks')
+            .then(response => response.json())
+            .then(apiData => {
+                setData(apiData);
+                setLoading(false);
+            })
+        }
+        fetchData();
+    }, [])
+
+    if(loading) return <div>Loading...</div>;
+
     return (
         <div id="thunk-recently_added-tab" className="thunk-recently_added-tab">
             <div className="thunk-heading-wrap">
@@ -28,47 +46,35 @@ function RecentlyAdded() {
                     nav={true}
                     autoplayHoverPause={true}
                 >
-                    <div className="trendingProduct">
-                        <a className="product-card" href="/">
-                            <div className="product-img">
-                                <img
-                                    alt="product"
-                                    className="wooble"
-                                    src="https://images-na.ssl-images-amazon.com/images/I/712XlaVQ8OL.jpg"
-                                />
-                            </div>
-                            <div className="stats-container">
-                                <div className="product-name">Book Name</div>
-                                <div className="product-author">
-                                    <div>
-                                        <span className="author-name">Author Name</span>
+                    {
+                        data.map(book => 
+                            <div className="trendingProduct">
+                                <a className="product-card" href={`/book/${book.identity.low}`}>
+                                    <div className={`product-img ${book.properties.Count == 0 && 'product-na'}`}>
+                                        <img
+                                            loading="lazy"
+                                            alt="product"
+                                            className="wooble"
+                                            src={book.properties.Image}
+                                        />
+                                        {book.properties.Count == 0  && 
+                                            <div className="not-available-container">
+                                                <span>Not available</span>
+                                            </div>
+                                        }
                                     </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div className="trendingProduct">
-                        <a className="product-card" href="/">
-                            <div className="product-img product-na">
-                                <img
-                                    alt="product"
-                                    className="wooble"
-                                    src="https://images-na.ssl-images-amazon.com/images/I/514nzbCsaaL._SX352_BO1,204,203,200_.jpg"
-                                />
-                                <div className="not-available-container">
-                                    <span>Not available</span>
-                                </div>
-                            </div>
-                            <div className="stats-container">
-                                <div className="product-name">Product Name</div>
-                                <div className="product-author">
-                                    <div>
-                                        <span className="author-name">Author Name</span>
+                                    <div className="stats-container">
+                                        <div className="product-name">{book.properties.Name}</div>
+                                        <div className="product-author">
+                                            <div>
+                                                <span className="author-name">{book.properties.Author}</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
+                        )
+                    }
                 </OwlCarousel>
             </div>
         </div>

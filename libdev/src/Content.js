@@ -15,7 +15,7 @@ function Content() {
                 <Route exact path="/">
                     <Home/>
                 </Route>
-                <Route path="/book-details">
+                <Route path="/book/:bookId">
                     <BookDeatils/>
                 </Route>
                 <Route path="/all-category">
