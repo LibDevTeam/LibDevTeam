@@ -7,6 +7,7 @@ import AllCategory from './AllCategory';
 import SubjectDetail from './SubjectDetail';
 import MyAccount from './MyAccount';
 import PendingBooks from './PendingBooks';
+import Search from './Search';
 
 function Content() {
     return (
@@ -14,6 +15,9 @@ function Content() {
             <Switch>
                 <Route exact path="/">
                     <Home/>
+                </Route>
+                <Route path="/search">
+                    <Search/>
                 </Route>
                 <Route path="/book/:bookId">
                     <BookDeatils/>

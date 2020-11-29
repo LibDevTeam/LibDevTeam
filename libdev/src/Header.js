@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header(Main).css';
 import './Header(Sticky).css';
 import './Header(Below).css';
+import { Redirect, useHistory, NavLink } from 'react-router-dom';
 
-function Header() {
+function Header({props}) {
+    const [query, setQuery] = useState('');
+    const history = useHistory();
+    // console.log(query);
+
+    const formSubmitHandle = (e) => {
+        // e.preventDefault();
+        // console.log('hi');
+        console.log(query);
+        history.push({pathname: '/search',query});
+    }
+
     return (
         <div>
             <a href="/" className="skip-link screen-reader-text">Skip to content</a>
@@ -132,23 +144,25 @@ function Header() {
                         </div>
                         <div className="main-header-col2">
                             <div id="search-box" className="wow thmkfadeInDown">
-                                <form action="" id="search-form" className="woocommerce-product-search" method="get" target="_top">
+                                <form onSubmit={formSubmitHandle} id="search-form" className="woocommerce-product-search">
                                     <input
                                         id="search-text"
-                                        name="s"
+                                        name="q"
+                                        value={query}
                                         placeholder="Search for books"
                                         className="form-control search-autocomplete ui-autocomplete-input"
                                         type="text"
+                                        autoComplete="off"
                                         title="Search for:"
-                                        autoComplete
+                                        onChange={(e) => setQuery(e.target.value)}
                                     />
                                     <div className="vert-brd"></div>
-                                    <select name="product_cat" id="product_cat" className="something">
-                                        <option value="0" selected="selected">All Category</option>
-                                        <option className="level-0" value="category1">Category 1</option>
-                                        <option className="level-0" value="category2">Category 2</option>
-                                        <option className="level-0" value="category3">Category 3</option>
-                                        <option className="level-0" value="category4">Category 4</option>
+                                    <select name="subject" id="product_cat" className="something">
+                                        <option value="all" selected="selected">All Category</option>
+                                        <option className="level-0" value="1">Category 1</option>
+                                        <option className="level-0" value="2">Category 2</option>
+                                        <option className="level-0" value="3">Category 3</option>
+                                        <option className="level-0" value="4">Category 4</option>
                                     </select>
                                     <button id="search-button" value="Submit" type="submit">
                                         <i className="fa fa-search" aria-hidden="true"></i>
