@@ -13,7 +13,7 @@ function Header({props}) {
         // e.preventDefault();
         // console.log('hi');
         console.log(query);
-        history.push({pathname: '/search',query});
+        history.replace({pathname: '/search',query});
     }
 
     return (
@@ -154,13 +154,14 @@ function Header({props}) {
                                         type="text"
                                         autoComplete="off"
                                         title="Search for:"
+                                        required
                                         onChange={(e) => setQuery(e.target.value)}
                                     />
                                     <div className="vert-brd"></div>
                                     <select name="subject" id="product_cat" className="something">
                                         <option value="all" selected="selected">All Category</option>
                                         <option className="level-0" value="1">Category 1</option>
-                                        <option className="level-0" value="2">Category 2</option>
+                                        <option className="level-0" value="6">Operating System</option>
                                         <option className="level-0" value="3">Category 3</option>
                                         <option className="level-0" value="4">Category 4</option>
                                     </select>

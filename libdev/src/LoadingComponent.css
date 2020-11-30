@@ -1,0 +1,44 @@
+.loading2 {
+    background-color: #f1f1f1;
+    text-align: center;
+    z-index: 100000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.loading2 i {
+    font-size: 70px;
+    position: absolute;
+    top: 50%;
+    animation: rotating 1.5s infinite, myanimation 1.5s infinite;
+}
+
+@keyframes myanimation {
+    0% {color: #f50f13;}
+    25%{color:#FF4917;}
+    50%{color:#E66E12;}
+    75%{color:#FCA208;}
+    100% {color: #f50f13;}
+}
+
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -ms-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        -webkit-transform: rotate(359deg);
+        -o-transform: rotate(359deg);
+        transform: rotate(359deg);
+      }
+}

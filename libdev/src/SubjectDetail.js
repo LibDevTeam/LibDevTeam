@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './SubjectDetail.css';
 import { useParams } from 'react-router-dom';
+import Loading1, { Loading2 } from './LoadingComponents';
 
 function SubjectDetail() {
     const { subjectId } = useParams();
@@ -44,10 +45,7 @@ function SubjectDetail() {
             })
         }
         fetchData();
-        // console.log(data,totalPage,initialLoading,loading);
     },[])
-
-    // console.log(loading);
 
     useEffect(() => {
         const loadUsers = async () => {
@@ -68,9 +66,7 @@ function SubjectDetail() {
     }, [loading]);
 
     const loadMore = () => {
-        // console.log('hi',loading);
         setLoading(true);
-        // console.log('hi',loading);
     }
 
     const showOptions = () => {
@@ -80,7 +76,7 @@ function SubjectDetail() {
         console.log('yet to be declared');
     }
 
-    if(initialLoading) return <div>Initial Loading...</div>
+    if(initialLoading) return <Loading2/>
 
     return (
         <div className="content-wrap" style={{transform: "none"}}>
@@ -187,7 +183,7 @@ function SubjectDetail() {
                                     </div>
                                 </li>)
                             }
-                            {loading && <div>Loading......</div>}
+                            {loading && <Loading1/>}
                             {page > totalPage && data.subjectBookCount != 0 && !loading && <div>No more results</div>}
                         </ul>
                     </div>

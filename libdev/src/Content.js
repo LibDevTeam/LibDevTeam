@@ -8,6 +8,7 @@ import SubjectDetail from './SubjectDetail';
 import MyAccount from './MyAccount';
 import PendingBooks from './PendingBooks';
 import Search from './Search';
+import { Loading2 } from './LoadingComponents';
 
 function Content() {
     return (
@@ -15,6 +16,9 @@ function Content() {
             <Switch>
                 <Route exact path="/">
                     <Home/>
+                </Route>
+                <Route path="/loading">
+                    <Loading2/>
                 </Route>
                 <Route path="/search">
                     <Search/>

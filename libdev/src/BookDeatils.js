@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './BookDetails.css';
 import SimilarBooks from './SimilarBooks';
 import { useParams } from 'react-router-dom';
-import Loading1 from './LoadingComponents';
+import Loading1, { Loading2 } from './LoadingComponents';
 
 function BookDeatils() {
     const { bookId } = useParams();
@@ -34,7 +34,7 @@ function BookDeatils() {
     //     document.querySelector(".modal").style.display = "none";
     // }
 
-    if(loading) return <Loading1/>
+    if(loading) return <Loading2/>
 
     return (
         <div className="content-wrap" style={{transform: "none"}}>

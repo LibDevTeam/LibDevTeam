@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './AllCategory.css';
+import { Loading2 } from './LoadingComponents';
 
 function AllCategory() {
     const [depts,setDepts] = useState([])
+    const [loading,setLoading] = useState(true);
 
     useEffect(() => {
         const url = '/api/v1/dept-subjects';
@@ -10,6 +12,7 @@ function AllCategory() {
         .then((response) => response.json())
         .then((data) => {
             setDepts(data);
+            setLoading(false);
         })
     }, [])
 
@@ -22,6 +25,8 @@ function AllCategory() {
             document.querySelector(`.button-toggle-${value}`).querySelector(".fa").className = "fa fa-angle-down";
         }
     }
+
+    if(loading) return <Loading2/>
 
     return (
         <div className="content-wrap" style={{transform: "none"}}>
