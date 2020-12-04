@@ -3,6 +3,7 @@ import './Header(Main).css';
 import './Header(Sticky).css';
 import './Header(Below).css';
 import { MenuItem, MenuList } from '@material-ui/core';
+import { useAuth0 } from '@auth0/auth0-react';
 import $ from 'jquery';
 
 function addToPlaceholder(toAdd, el) {
@@ -41,6 +42,7 @@ function run() {
 }
 
 function Header({props}) {
+    const { logout } = useAuth0();
     const node = useRef();
     const [query, setQuery] = useState('');
     const [subject,setSubject] = useState('all');
@@ -172,7 +174,7 @@ function Header({props}) {
                                                 <a href="/account/cards">Card Details</a>
                                                 <a href="/account/wishlist">My Wishlist</a>
                                                 <a href="/account/orders">Orders</a>
-                                                <a href="/">Logout</a>
+                                                <a onClick={() => logout()} href="/">Logout</a>
                                             </div>
                                         </a>
                                     </span>
@@ -278,7 +280,7 @@ function Header({props}) {
                                             <a href="/account/cards">Card Details</a>
                                             <a href="/account/wishlist">My Wishlist</a>
                                             <a href="/account/orders">Orders</a>
-                                            <a href="/">Logout</a>
+                                            <a onClick={() => logout()} href="/">Logout</a>
                                         </div>
                                     </a>
                                 </div>

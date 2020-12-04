@@ -1,13 +1,18 @@
 import React from 'react'; 
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom'
 import Content from './Content';
 import Footer from './Footer';
 import Header from './Header';
+import Login from './Login';
+import Logout from './Logout';
+import { useAuth0 } from '@auth0/auth0-react';
+import { Loading3 } from './LoadingComponents';
 
 
 
 function App() {
+  const  { isLoading, isAuthenticated } = useAuth0();
+
   const ScrollTop = () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
@@ -25,9 +30,9 @@ function App() {
     }
   }
 
-  return (
-    <Router>
+  if(isAuthenticated || isLoading) return (
       <div className="app">
+        {isLoading && <Loading3/>}
         <a href="" id="move-to-top" onClick={ScrollTop} className="move-to-top-hide">
           <i className="fa fa-angle-up"></i>
         </a>
@@ -40,8 +45,9 @@ function App() {
           <div id="caption"></div>
         </div>
       </div>
-    </Router>
   );
+
+  if(!isAuthenticated) return <Login/>
 }
 
 export default App;

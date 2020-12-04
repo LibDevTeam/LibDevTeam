@@ -37,3 +37,11 @@ export function Loading2() {
         </section>
     )
 }
+
+export function Loading3() {
+    return (
+        <div className="loading3">
+            <i className="fa fa-spinner fa-spin"></i>
+        </div>
+    )
+}

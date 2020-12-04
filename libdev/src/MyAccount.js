@@ -3,8 +3,11 @@ import './MyAccount.css';
 import { Switch, Route } from 'react-router-dom';
 import Wishlist from './Wishlist';
 import Orders from './Orders';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function MyAccount() {
+    const { logout } = useAuth0();
+
     return (
         <div className="content-wrap" style={{transform: "none"}}>
             <div className="container" style={{transform: "none"}}>
@@ -45,7 +48,7 @@ function MyAccount() {
                                         <div>Wishlist</div>
                                     </a>
                                 </div>
-                                <div className="navigate logout-button">
+                                <div onClick={() => logout()} className="navigate logout-button">
                                     <a>
                                         <div><i class="fa fa-power-off" aria-hidden="true"></i> Logout</div>
                                     </a>
