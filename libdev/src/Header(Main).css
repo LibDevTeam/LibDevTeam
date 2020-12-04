@@ -51,6 +51,42 @@
     width: 51%;
 }
 
+.main-header .main-header-bar .main-header-col2 #search-box {
+    position: relative;
+}
+
+.main-header .main-header-bar .main-header-col2 #search-box .autocomplete-ul {
+    position: absolute;
+    border: 1px solid #c5c5c5;
+    border-radius: 2px;
+    z-index: 1000;
+    /* left: 25px; */
+    top: 40px;
+    margin-top: 0px;
+    background: #fff;
+    /* max-width: 280px !important; */
+    color: #222;
+    padding-left: 0px;
+    cursor: pointer;
+}
+
+.main-header .main-header-bar .main-header-col2 #search-box .autocomplete-ul .autocomplete-li {
+    list-style: none;
+    padding: 3px 1em 3px .4em;
+    transition: all 0.3s ease;
+}
+
+.main-header .main-header-bar .main-header-col2 #search-box .autocomplete-ul .autocomplete-li:active,
+.main-header .main-header-bar .main-header-col2 #search-box .autocomplete-ul .autocomplete-li:hover,
+.main-header .main-header-bar .main-header-col2 #search-box .autocomplete-ul .autocomplete-li:focus {
+    background: #f1f1f1;
+    transition: all 0.3s ease;
+}
+
+.main-header .main-header-bar .main-header-col2 #search-box .autocomplete-ul .autocomplete-li a {
+    color: #222 !important;
+}
+
 .main-header .main-header-bar .main-header-col2 #search-box form {
     position: relative;
     width: 95%;
@@ -269,6 +305,16 @@
     .main-header .main-header-bar .main-header-col3 .thunk-icon-market .cart-icon .cart-contents .cart-content {
         font-size: 10px;
     }
+}
+
+.MuiList-padding {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.MuiListItem-button {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
 }
 
 @media (min-width: 769px) {

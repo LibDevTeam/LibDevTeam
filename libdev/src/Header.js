@@ -1,19 +1,91 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Header(Main).css';
 import './Header(Sticky).css';
 import './Header(Below).css';
-import { Redirect, useHistory, NavLink } from 'react-router-dom';
+import { MenuItem, MenuList } from '@material-ui/core';
+import $ from 'jquery';
+
+function addToPlaceholder(toAdd, el) {
+    el.attr('placeholder', el.attr('placeholder') + toAdd);
+    return new Promise(resolve => setTimeout(resolve, 100));
+}
+
+function clearPlaceholder(el) {
+    el.attr("placeholder","");
+}
+
+function printPhrase(phrase, el) {
+    return new Promise(resolve => {
+        clearPlaceholder(el);
+        let letters = phrase.split('');
+        letters.reduce((promise, letter, index) => promise.then(_ => {
+            if(index === letters.length -1) {
+                setTimeout(resolve, 1000);
+            }
+            return addToPlaceholder(letter,el);
+        }),
+        Promise.resolve()
+        );
+    });
+}
+
+function printPhrases(phrases, el) {
+    phrases.reduce((promise, phrase) => promise.then(_ => printPhrase(phrase, el)),
+    Promise.resolve()
+    );
+}
+
+function run() {
+    let phrases = ["Search by book title", "Search by authors", "Search by publishers", "Search by ISBN numbers", "Search your books"];
+    printPhrases(phrases, $('#search-text'));
+}
 
 function Header({props}) {
+    const node = useRef();
     const [query, setQuery] = useState('');
-    const history = useHistory();
-    // console.log(query);
+    const [subject,setSubject] = useState('all');
+    const [debouncedValue,setDebouncedValue] = useState('');
+    const [delay,setDelay] = useState(500);
+    const [books,setBooks] = useState([]);
+    const [bookLoading,setBookLoading] = useState(false);
+    const [openBox,setOpenBox] = useState(false);
+    
+    useEffect(() => {
+        window.addEventListener("mousedown",handleClick);
+        run();
+        return () => window.removeEventListener("mousedown",handleClick);
+    },[])
 
-    const formSubmitHandle = (e) => {
-        // e.preventDefault();
-        // console.log('hi');
-        console.log(query);
-        history.replace({pathname: '/search',query});
+    useEffect(() => {
+        const fetchData = async () => {
+            await fetch(`/api/v1/get/search?q=${debouncedValue}&subject=all&page=1&per=10`)
+            .then(response => response.json())
+            .then(apiData => {
+                setBooks([...apiData]);
+                setBookLoading(false);
+            })
+        }
+        if(debouncedValue.length > 2) {
+            setOpenBox(true);
+            setBookLoading(true);
+            fetchData();
+        }
+    }, [debouncedValue])
+
+    useEffect(() => {
+        if(query.length <3) setOpenBox(false);
+        const handler = setTimeout(() => {
+            setDebouncedValue(query);
+        }, delay);
+        return () => {
+            clearTimeout(handler);
+        }
+    }, [delay,query])
+
+    const handleClick = (e) => {
+        if(node.current && !node.current.contains(e.target) && e.target.id !== 'search-text') {
+            setOpenBox(false);
+        }
     }
 
     return (
@@ -144,12 +216,12 @@ function Header({props}) {
                         </div>
                         <div className="main-header-col2">
                             <div id="search-box" className="wow thmkfadeInDown">
-                                <form onSubmit={formSubmitHandle} id="search-form" className="woocommerce-product-search">
+                                <form action="/search" id="search-form" className="woocommerce-product-search">
                                     <input
+                                        list="options"
                                         id="search-text"
                                         name="q"
                                         value={query}
-                                        placeholder="Search for books"
                                         className="form-control search-autocomplete ui-autocomplete-input"
                                         type="text"
                                         autoComplete="off"
@@ -157,6 +229,18 @@ function Header({props}) {
                                         required
                                         onChange={(e) => setQuery(e.target.value)}
                                     />
+                                    {   openBox && books.length !== 0 &&
+                                            <MenuList ref={node} className="autocomplete-ul">
+                                                {bookLoading && <div className="autocomplete-li" style={{width: '280px'}}>Loading...<i className="fa fa-spin fa-spinner"></i></div>}
+                                                {!bookLoading && books.length !== 0 &&
+                                                    books.map((book,index) => 
+                                                        <MenuItem className="autocomplete-li">
+                                                            <a href={`/book/${book._fields[0].identity.low}`}>{book._fields[0].properties.Name}</a>
+                                                        </MenuItem>
+                                                    )
+                                                }
+                                            </MenuList>
+                                    }
                                     <div className="vert-brd"></div>
                                     <select name="subject" id="product_cat" className="something">
                                         <option value="all" selected="selected">All Category</option>
