@@ -6,7 +6,7 @@ import Orders from './Orders';
 import { useAuth0 } from '@auth0/auth0-react';
 
 function MyAccount() {
-    const { logout } = useAuth0();
+    const { logout, user } = useAuth0();
     const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
     return (
@@ -17,14 +17,24 @@ function MyAccount() {
                         <div>
                             <div className="navbar-div1">
                                 <div className="welcome-container">
-                                    <img
-                                        alt="Profile Pic"
-                                        className="profile-pic"
-                                        src="//img1a.flixcart.com/www/linchpin/fk-cp-zion/img/profile-pic-male_4811a1.svg"
-                                    />
+                                    { user !== undefined && 
+                                        <img
+                                            alt={user.name}
+                                            className="profile-pic"
+                                            src={user.picture}
+                                        />
+                                    }
+                                    { user === undefined && 
+                                        <img
+                                            alt="User name"
+                                            className="profile-pic"
+                                            src="https://i.stack.imgur.com/l60Hf.png"
+                                        />
+                                    }
                                     <div className="profile-name-container">
                                         <div className="welcome-box">Hello,</div>
-                                        <div className="profile-name">USERNAME</div>
+                                        { user !== undefined && <div className="profile-name">{user.name}</div>}
+                                        { user === undefined && <div className="profile-name">User Name</div>}
                                     </div>
                                 </div>
                             </div>
@@ -49,10 +59,10 @@ function MyAccount() {
                                         <div>Wishlist</div>
                                     </a>
                                 </div>
-                                <div onClick={() => logout({returnTo: window.location.origin, client_id: clientId})} className="navigate logout-button">
-                                    <a>
-                                        <div><i class="fa fa-power-off" aria-hidden="true"></i> Logout</div>
-                                    </a>
+                                <div className="navigate logout" onClick={() => logout({returnTo: window.location.origin, client_id: clientId})}>
+                                    <div>
+                                        <i class="fa fa-power-off" aria-hidden="true"></i> Logout
+                                    </div>
                                 </div>
                             </div>
                         </div>

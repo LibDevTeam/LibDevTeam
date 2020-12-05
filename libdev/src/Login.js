@@ -9,7 +9,7 @@ function Login() {
     return (
         ! isAuthenticated &&
         <div>
-            <button onClick={() => loginWithRedirect()}>
+            <button onClick={() => loginWithRedirect({screen_hint: "signup"})}>
                 Log in
             </button>
         </div>

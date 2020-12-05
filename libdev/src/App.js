@@ -10,7 +10,7 @@ import { Loading3 } from './LoadingComponents';
 
 
 function App() {
-  const  { isLoading, isAuthenticated, user } = useAuth0();
+  const  { isLoading, isAuthenticated } = useAuth0();
 
   const ScrollTop = () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
@@ -23,13 +23,12 @@ function App() {
   }
 
   window.onClick = function(event) {
-    console.log(event);
     if(event.target === document.querySelector(".modal")) {
       modalClose();
     }
   }
 
-  console.log(user);
+  // console.log(user);
 
   if(isAuthenticated || isLoading) return (
       <div className="app">
