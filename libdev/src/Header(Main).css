@@ -197,7 +197,8 @@
     border-radius: 3px;
 }
 
-.main-header .main-header-bar .main-header-col3 .thunk-icon-market .header-icon a.myaccount-hover div.account-dropdown a {
+.main-header .main-header-bar .main-header-col3 .thunk-icon-market .header-icon a.myaccount-hover div.account-dropdown a,
+.main-header .main-header-bar .main-header-col3 .thunk-icon-market .header-icon a.myaccount-hover div.account-dropdown div.logout {
     color: #111;
     font-size: 14px;
     padding: 12px 5px 12px 12px;
@@ -206,7 +207,8 @@
     transition: all 0.3s ease;
 }
 
-.main-header .main-header-bar .main-header-col3 .thunk-icon-market .header-icon a.myaccount-hover div.account-dropdown a:hover {
+.main-header .main-header-bar .main-header-col3 .thunk-icon-market .header-icon a.myaccount-hover div.account-dropdown a:hover,
+.main-header .main-header-bar .main-header-col3 .thunk-icon-market .header-icon a.myaccount-hover div.account-dropdown div.logout:hover {
     background-color: rgb(250,250,250);
     transition: all 0.3s ease;
 }

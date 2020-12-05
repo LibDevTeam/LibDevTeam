@@ -4,14 +4,13 @@ import Content from './Content';
 import Footer from './Footer';
 import Header from './Header';
 import Login from './Login';
-import Logout from './Logout';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Loading3 } from './LoadingComponents';
 
 
 
 function App() {
-  const  { isLoading, isAuthenticated } = useAuth0();
+  const  { isLoading, isAuthenticated, user } = useAuth0();
 
   const ScrollTop = () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
@@ -29,6 +28,8 @@ function App() {
       modalClose();
     }
   }
+
+  console.log(user);
 
   if(isAuthenticated || isLoading) return (
       <div className="app">

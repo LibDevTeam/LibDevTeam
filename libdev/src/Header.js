@@ -51,6 +51,7 @@ function Header({props}) {
     const [books,setBooks] = useState([]);
     const [bookLoading,setBookLoading] = useState(false);
     const [openBox,setOpenBox] = useState(false);
+    const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
     
     useEffect(() => {
         window.addEventListener("mousedown",handleClick);
@@ -174,7 +175,7 @@ function Header({props}) {
                                                 <a href="/account/cards">Card Details</a>
                                                 <a href="/account/wishlist">My Wishlist</a>
                                                 <a href="/account/orders">Orders</a>
-                                                <a onClick={() => logout()} href="/">Logout</a>
+                                                {/* <div className="logout" onClick={() => logout({returnTo: window.location.origin, client_id: clientId})}>Logout</div> */}
                                             </div>
                                         </a>
                                     </span>
@@ -280,7 +281,7 @@ function Header({props}) {
                                             <a href="/account/cards">Card Details</a>
                                             <a href="/account/wishlist">My Wishlist</a>
                                             <a href="/account/orders">Orders</a>
-                                            <a onClick={() => logout()} href="/">Logout</a>
+                                            <div className="logout" onClick={() => logout({returnTo: window.location.origin, client_id: clientId})}>Logout</div>
                                         </div>
                                     </a>
                                 </div>

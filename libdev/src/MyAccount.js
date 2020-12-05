@@ -7,6 +7,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 function MyAccount() {
     const { logout } = useAuth0();
+    const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
     return (
         <div className="content-wrap" style={{transform: "none"}}>
@@ -48,7 +49,7 @@ function MyAccount() {
                                         <div>Wishlist</div>
                                     </a>
                                 </div>
-                                <div onClick={() => logout()} className="navigate logout-button">
+                                <div onClick={() => logout({returnTo: window.location.origin, client_id: clientId})} className="navigate logout-button">
                                     <a>
                                         <div><i class="fa fa-power-off" aria-hidden="true"></i> Logout</div>
                                     </a>
