@@ -42,7 +42,7 @@ function run() {
 }
 
 function Header({props}) {
-    const { logout } = useAuth0();
+    const { logout, user, isLoading } = useAuth0();
     const node = useRef();
     const [query, setQuery] = useState('');
     const [subject,setSubject] = useState('all');
@@ -166,9 +166,23 @@ function Header({props}) {
                                     </a>
                                     <span>
                                         <a href="/account" className="myaccount-hover">
-                                            <span className="account-text">Login / Signup</span>
                                             <span className="account-text">My account</span>
-                                            <i className="fa fa-lock" aria-hidden="true"></i>
+                                            {/* <span className="account-text">My account</span> */}
+                                            {/* <i className="fa fa-lock" aria-hidden="true"></i> */}
+                                            {   isLoading && 
+                                                <img
+                                                    alt="profile-pic"
+                                                    src="https://i.stack.imgur.com/l60Hf.png"
+                                                    style={{width: '25px', height: '25px', borderRadius: '50%', marginTop: '3.5px'}}
+                                                />
+                                            }
+                                            {   !isLoading && 
+                                                <img
+                                                    alt={user.name}
+                                                    src={user.picture}
+                                                    style={{width: '25px', height: '25px', borderRadius: '50%', marginTop: '3.5px'}}
+                                                />
+                                            }
                                             <div className="account-dropdown">
                                                 <div className="clip"></div>
                                                 <a href="/account">My Account</a>
@@ -272,9 +286,23 @@ function Header({props}) {
                                         <i className="fa fa-heart-o" aria-hidden="true"></i>
                                     </a>
                                     <a className="myaccount-hover">
-                                        <span className="account-text">Login / SignUp</span>
-                                        <span className="account-text">My account</span>
-                                        <i className="fa fa-lock" aria-hidden="true"></i>
+                                        {/* <span className="account-text">Login / SignUp</span> */}
+                                        {/* <i className="fa fa-lock" aria-hidden="true"></i> */}
+                                        {   isLoading && 
+                                            <img
+                                                alt="profile-pic"
+                                                src="https://i.stack.imgur.com/l60Hf.png"
+                                                style={{width: '35px', height: '35px', borderRadius: '50%', marginBottom: '-10px', marginTop: '4px'}}
+                                            />
+                                        }
+                                        {   !isLoading && 
+                                            <img
+                                                alt={user.name}
+                                                src={user.picture}
+                                                style={{width: '35px', height: '35px', borderRadius: '50%', marginBottom: '-10px', marginTop: '4px'}}
+                                            />
+                                        }
+                                        {/* <span className="account-text">My account</span> */}
                                         <div className="account-dropdown">
                                             <div className="clip"></div>
                                             <a href="/account">My Account</a>
