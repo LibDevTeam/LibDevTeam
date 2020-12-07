@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './BookDetails.css';
 import SimilarBooks from './SimilarBooks';
 import { useParams } from 'react-router-dom';
-import Loading1, { Loading2 } from './LoadingComponents';
+import { Loading2 } from './LoadingComponents';
+import { GlobalContext } from './GlobalState';
 
 function BookDeatils() {
     const { bookId } = useParams();
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState();
+    const { user_data } = useContext(GlobalContext);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -55,9 +57,13 @@ function BookDeatils() {
                         <div className="book-button-container">
                             <ul>
                                 <li>
-                                    <button>
-                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to wishlist
-                                    </button>
+                                    {
+                                        (!user_data[2] || !user_data[2].find(book => book.identity.low == data[0].identity.low))
+                                        ?<button>
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to wishlist
+                                        </button>
+                                        :<a href="/account/wishlist">Go to wishlist</a>
+                                    }
                                 </li>
                                 <li>
                                     <form>

@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './SubjectDetail.css';
 import { useParams } from 'react-router-dom';
 import Loading1, { Loading2 } from './LoadingComponents';
+import { GlobalContext } from './GlobalState';
 
 function SubjectDetail() {
+    const { user_data } = useContext(GlobalContext);
     const { subjectId } = useParams();
     const [page, setPage] = useState(0);
     const [books, setBooks] = useState([]);
@@ -84,7 +86,11 @@ function SubjectDetail() {
                 <div className="main-area disable-right-sidebar" style={{transform: "none"}}>
                     <div className="subject-header">
                         <div className="subject-heading">
-                            <h1>{data.subjectName} <i style={{color: "#fdcc0d"}} className="fa fa-star" aria-hidden="true"></i></h1>
+                            {
+                                (!user_data[2] || user_data[2].find(subject => subject.identity.low === data.subjectId))
+                                ?<h1>{data.subjectName}</h1>
+                                :<h1>{data.subjectName} <i style={{color: "#fdcc0d"}} className="fa fa-star" aria-hidden="true"></i></h1>
+                            }
                         </div>
                         <ul className="thunk-breadcrumb trail-items">
                             <li className="trail-item trail-begin">
@@ -170,6 +176,15 @@ function SubjectDetail() {
                                                         <span>Not available</span>
                                                     </div>
                                                 }
+                                                <div className="add-to-wishlist">
+                                                    <div>
+                                                        {
+                                                            (!user_data[2] || !user_data[2].find(wishlist => wishlist.identity.low == book.identity.low))
+                                                            ?<i className="fa fa-heart-o"></i>
+                                                            :<i className="fa fa-heart"></i>
+                                                        }
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div className="stats-container">
                                                 <div className="product-name">{book.properties.Name}</div>

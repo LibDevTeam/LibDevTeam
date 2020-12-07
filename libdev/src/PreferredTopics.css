@@ -36,6 +36,22 @@
     background: #171a29;
 }
 
+.thunk-preferred_topics-tab .thunk-slide {
+    max-height: 300px;
+}
+
+.thunk-preferred_topics-tab .thunk-slide .thunk-topic-wrap,
+.thunk-preferred_topics-tab .thunk-slide .thunk-topic-wrap .thunk-topic,
+.thunk-preferred_topics-tab .thunk-slide .thunk-topic-wrap .thunk-topic .thunk-topic-image,
+.thunk-preferred_topics-tab .thunk-slide .thunk-topic-wrap .thunk-topic .thunk-topic-image .topic-link {
+    height: 100%;
+    position: relative;
+}
+
+.thunk-preferred_topics-tab .thunk-slide .thunk-topic-wrap .thunk-topic .thunk-topic-image .topic-link img {
+    max-height: 300px;
+}
+
 .thunk-preferred_topics-tab .owl-theme .owl-nav{
     position: absolute;
     top: 35%;

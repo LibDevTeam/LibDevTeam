@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Loading1, { Loading2 } from './LoadingComponents';
 import './Search.css';
+import { GlobalContext } from './GlobalState';
 
 function Search() {
+    const { user_data } = useContext(GlobalContext);
     const x = new URLSearchParams(window.location.search);
     const q = x.get('q');
     const subject = x.get('subject')
@@ -132,6 +134,15 @@ function Search() {
                                                         <span>Not available</span>
                                                     </div>
                                                 }
+                                                <div className="add-to-wishlist">
+                                                    <div>
+                                                        {
+                                                            (!user_data[2] || !user_data[2].find(wishlist => wishlist.identity.low == book._fields[0].identity.low))
+                                                            ?<i className="fa fa-heart-o"></i>
+                                                            :<i className="fa fa-heart"></i>
+                                                        }
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div className="stats-container">
                                                 <div className="product-name">{book._fields[0].properties.Name}</div>

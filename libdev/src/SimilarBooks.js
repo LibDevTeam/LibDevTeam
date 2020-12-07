@@ -32,6 +32,7 @@ function SimilarBooks() {
                         <a className="product-card" href="/">
                             <div className="product-img">
                                 <img
+                                    loading="lazy"
                                     alt="product"
                                     className="wooble"
                                     src="https://images-na.ssl-images-amazon.com/images/I/712XlaVQ8OL.jpg"
@@ -51,6 +52,7 @@ function SimilarBooks() {
                         <a className="product-card" href="/">
                             <div className="product-img">
                                 <img
+                                    loading="lazy"
                                     alt="product"
                                     className="wooble"
                                     src="https://images-na.ssl-images-amazon.com/images/I/514nzbCsaaL._SX352_BO1,204,203,200_.jpg"

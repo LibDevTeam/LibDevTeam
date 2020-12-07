@@ -121,6 +121,49 @@
     color: #dd1c1c;
 }
 
+.trendingProduct .product-card .product-img .add-to-wishlist {
+    width: 100%;
+    visibility: hidden;
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transition: all 0.3s ease;
+}
+
+.trendingProduct .product-card .product-img .add-to-wishlist>div {
+    background: #f2f2f2;
+    opacity: 0;
+    margin: 0 auto;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.trendingProduct .product-card .product-img .add-to-wishlist>div>i {
+    margin-top: 6px;
+    color: #dd1c1c !important;
+}
+
+.trendingProduct .product-card:hover .product-img .add-to-wishlist {
+    visibility: visible;
+    transition: all 0.3s ease;
+}
+
+.trendingProduct .product-card:hover .product-img .add-to-wishlist>div {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.trendingProduct .product-card:hover .product-img .add-to-wishlist>div>i {
+    transition: all 0.3s ease;
+}
+
+.trendingProduct .product-card:hover .product-img .add-to-wishlist>div:hover>i {
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+}
+
 .trendingProduct .product-card .product-name {
     color: #212121;
     max-height: 36px;

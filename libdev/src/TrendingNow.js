@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './TrendingNow.css';
 import OwlCarousel from 'react-owl-carousel';
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import { GlobalContext } from './GlobalState';
 
 function TrendingNow() {
+    const { user_data } = useContext(GlobalContext);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
 
@@ -62,6 +64,15 @@ function TrendingNow() {
                                                 <span>Not available</span>
                                             </div>
                                         }
+                                        <div className="add-to-wishlist">
+                                            <div>
+                                                {
+                                                    (!user_data[2] || !user_data[2].find(wishlist => wishlist.identity.low == book.identity.low))
+                                                    ?<i className="fa fa-heart-o"></i>
+                                                    :<i className="fa fa-heart"></i>
+                                                }
+                                            </div>
+                                        </div>
                                     </div>
                                     <div className="stats-container">
                                         <div className="product-name">{book.properties.Name}</div>

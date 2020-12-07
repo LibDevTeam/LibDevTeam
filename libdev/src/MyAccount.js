@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './MyAccount.css';
 import { Switch, Route } from 'react-router-dom';
 import Wishlist from './Wishlist';
 import Orders from './Orders';
 import { useAuth0 } from '@auth0/auth0-react';
+import { GlobalContext } from './GlobalState';
 
 function MyAccount() {
     const { logout, user } = useAuth0();
+    const { user_data } = useContext(GlobalContext);
     const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
     return (
@@ -17,14 +19,14 @@ function MyAccount() {
                         <div>
                             <div className="navbar-div1">
                                 <div className="welcome-container">
-                                    { user !== undefined && 
+                                    { user_data[0] && 
                                         <img
-                                            alt={user.name}
+                                            alt={user_data[0].properties.name}
                                             className="profile-pic"
                                             src={user.picture}
                                         />
                                     }
-                                    { user === undefined && 
+                                    { !user_data[0] && 
                                         <img
                                             alt="User name"
                                             className="profile-pic"
@@ -33,8 +35,8 @@ function MyAccount() {
                                     }
                                     <div className="profile-name-container">
                                         <div className="welcome-box">Hello,</div>
-                                        { user !== undefined && <div className="profile-name">{user.name}</div>}
-                                        { user === undefined && <div className="profile-name">User Name</div>}
+                                        { user_data[0] && <div className="profile-name">{user_data[0].properties.name}</div>}
+                                        { !user_data[0] && <div className="profile-name">User Name</div>}
                                     </div>
                                 </div>
                             </div>

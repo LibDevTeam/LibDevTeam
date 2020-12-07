@@ -143,7 +143,7 @@ function Header({props}) {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="/">
+                                                <a href="/preference">
                                                     <span className="top-store-menu-link">Preferences</span>
                                                 </a>
                                             </li>
@@ -171,14 +171,14 @@ function Header({props}) {
                                             <span className="account-text">My account</span>
                                             {/* <span className="account-text">My account</span> */}
                                             {/* <i className="fa fa-lock" aria-hidden="true"></i> */}
-                                            {   (isLoading || !user_data) &&
+                                            {   !user_data[0] &&
                                                 <img
                                                     alt="profile-pic"
                                                     src="https://i.stack.imgur.com/l60Hf.png"
                                                     style={{width: '25px', height: '25px', borderRadius: '50%', marginTop: '3.5px'}}
                                                 />
                                             }
-                                            {   user_data && !isLoading &&
+                                            {   user_data[0] &&
                                                 <img
                                                     alt={user_data[0].properties.name}
                                                     src={user.picture}
@@ -263,10 +263,11 @@ function Header({props}) {
                                     <div className="vert-brd"></div>
                                     <select name="subject" id="product_cat" className="something">
                                         <option value="all" selected="selected">All Category</option>
-                                        <option className="level-0" value="1">Category 1</option>
-                                        <option className="level-0" value="6">Operating System</option>
-                                        <option className="level-0" value="3">Category 3</option>
-                                        <option className="level-0" value="4">Category 4</option>
+                                        {
+                                            user_data[1] && 
+                                            user_data[1].map(category => 
+                                                <option className="level-0" value={category.identity.low}>{category.properties.name}</option>
+                                        )}
                                     </select>
                                     <button id="search-button" value="Submit" type="submit">
                                         <i className="fa fa-search" aria-hidden="true"></i>
@@ -290,16 +291,16 @@ function Header({props}) {
                                     <a className="myaccount-hover">
                                         {/* <span className="account-text">Login / SignUp</span> */}
                                         {/* <i className="fa fa-lock" aria-hidden="true"></i> */}
-                                        {   isLoading && 
+                                        {   !user_data[0] && 
                                             <img
                                                 alt="profile-pic"
                                                 src="https://i.stack.imgur.com/l60Hf.png"
                                                 style={{width: '35px', height: '35px', borderRadius: '50%', marginBottom: '-10px', marginTop: '4px'}}
                                             />
                                         }
-                                        {   !isLoading && 
+                                        {   user_data[0] && 
                                             <img
-                                                alt={user.name}
+                                                alt={user_data[0].properties.name}
                                                 src={user.picture}
                                                 style={{width: '35px', height: '35px', borderRadius: '50%', marginBottom: '-10px', marginTop: '4px'}}
                                             />
@@ -389,7 +390,7 @@ function Header({props}) {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="/">
+                                                <a href="/preference">
                                                     <span className="top-store-menu-link">Preferences</span>
                                                 </a>
                                             </li>
