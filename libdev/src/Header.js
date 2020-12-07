@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import './Header(Main).css';
 import './Header(Sticky).css';
 import './Header(Below).css';
 import { MenuItem, MenuList } from '@material-ui/core';
 import { useAuth0 } from '@auth0/auth0-react';
+import { GlobalContext } from './GlobalState';
 import $ from 'jquery';
 
 function addToPlaceholder(toAdd, el) {
@@ -52,6 +53,7 @@ function Header({props}) {
     const [bookLoading,setBookLoading] = useState(false);
     const [openBox,setOpenBox] = useState(false);
     const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+    const { user_data, getUserData } = useContext(GlobalContext);
     
     useEffect(() => {
         window.addEventListener("mousedown",handleClick);
@@ -169,16 +171,16 @@ function Header({props}) {
                                             <span className="account-text">My account</span>
                                             {/* <span className="account-text">My account</span> */}
                                             {/* <i className="fa fa-lock" aria-hidden="true"></i> */}
-                                            {   isLoading && 
+                                            {   (isLoading || !user_data) &&
                                                 <img
                                                     alt="profile-pic"
                                                     src="https://i.stack.imgur.com/l60Hf.png"
                                                     style={{width: '25px', height: '25px', borderRadius: '50%', marginTop: '3.5px'}}
                                                 />
                                             }
-                                            {   !isLoading && 
+                                            {   user_data && !isLoading &&
                                                 <img
-                                                    alt={user.name}
+                                                    alt={user_data[0].properties.name}
                                                     src={user.picture}
                                                     style={{width: '25px', height: '25px', borderRadius: '50%', marginTop: '3.5px'}}
                                                 />

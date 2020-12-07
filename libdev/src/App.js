@@ -1,16 +1,15 @@
 import React from 'react'; 
 import './App.css';
-import Content from './Content';
-import Footer from './Footer';
-import Header from './Header';
 import Login from './Login';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Loading3 } from './LoadingComponents';
+import { GlobalProvider } from './GlobalState';
+import Page from './Page';
 
 
 
 function App() {
-  const  { isLoading, isAuthenticated } = useAuth0();
+  const  { isLoading, isAuthenticated, user } = useAuth0();
 
   const ScrollTop = () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
@@ -28,17 +27,15 @@ function App() {
     }
   }
 
-  // console.log(user);
-
   if(isAuthenticated || isLoading) return (
       <div className="app">
         {isLoading && <Loading3/>}
         <a href="" id="move-to-top" onClick={ScrollTop} className="move-to-top-hide">
           <i className="fa fa-angle-up"></i>
         </a>
-        <Header/>
-        <Content/>
-        <Footer/>
+        <GlobalProvider>
+          <Page/>
+        </GlobalProvider>
         <div className="modal">
           <span id="modal-close" onClick={modalClose}>&times;</span>
           <img alt="modal-image" className="modal-image" id="modal-image"/>
