@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import './BookDetails.css';
 import SimilarBooks from './SimilarBooks';
 import { useParams } from 'react-router-dom';
 import { Loading2 } from './LoadingComponents';
-import { GlobalContext } from './GlobalState';
+import { useStateValue } from './StateProvider';
 
 function BookDeatils() {
     const { bookId } = useParams();
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState();
-    const { user_data } = useContext(GlobalContext);
+    const [{ user_data }] = useStateValue();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -58,7 +58,7 @@ function BookDeatils() {
                             <ul>
                                 <li>
                                     {
-                                        (!user_data[2] || !user_data[2].find(book => book.identity.low == data[0].identity.low))
+                                        (!user_data[2] || !user_data[2].find(book => book.identity.low === data[0].identity.low))
                                         ?<button>
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to wishlist
                                         </button>
@@ -108,10 +108,10 @@ function BookDeatils() {
                                     <span>(10)</span>
                                 </div>
                                 {
-                                    data[0].properties.Count == 0 && <div className="book-items-left">Not available</div>
+                                    data[0].properties.Count === '0' && <div className="book-items-left">Not available</div>
                                 }
                                 {
-                                    data[0].properties.Count != 0 && data[0].properties.Count <= 5 && <div>Only {data[0].properties.Count} left</div>
+                                    data[0].properties.Count !== '0' && data[0].properties.Count <= 5 && <div>Only {data[0].properties.Count} left</div>
                                 }
                                 {
                                     data[0].properties.Count > 5 && data[0].properties.Count < 10 && <div>Only a few left</div>

@@ -1,13 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './PreferredTopics.css';
 import OwlCarousel from 'react-owl-carousel';
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import { GlobalContext } from './GlobalState';
-import Loading1 from './LoadingComponents';
+import { useStateValue } from './StateProvider';
 
 function PreferredTopics() {
-    const { user_data } = useContext(GlobalContext);
+    const [{ user_data }] = useStateValue();
 
     return (
         <div id="thunk-preferred_topics-tab" className="thunk-preferred_topics-tab">
@@ -33,7 +32,6 @@ function PreferredTopics() {
                         autoplay={true}
                         smartSpeed={1800}
                         responsiveClass={true}
-                        // responsive={{0:{items:1},767:{items:1},1024:{items:1}}}
                         responsive={{0:{items:Math.min(2,user_data[1].length)},767:{items:Math.min(3,user_data[1].length)},1024:{items:Math.min(4,user_data[1].length)}}}
                         dots={false}
                         loop

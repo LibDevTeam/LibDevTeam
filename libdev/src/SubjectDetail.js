@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SubjectDetail.css';
 import { useParams } from 'react-router-dom';
 import Loading1, { Loading2 } from './LoadingComponents';
-import { GlobalContext } from './GlobalState';
+import { useStateValue } from './StateProvider';
 
 function SubjectDetail() {
-    const { user_data } = useContext(GlobalContext);
+    const [{ user_data }] = useStateValue();
     const { subjectId } = useParams();
     const [page, setPage] = useState(0);
     const [books, setBooks] = useState([]);
@@ -158,7 +158,7 @@ function SubjectDetail() {
                         </div>
                         <div className="clear-border"></div>
                         <ul className="book-content">
-                            {data.subjectBookCount == 0 && !loading && <div style={{color: "#dd1c1c"}}>No book found. Go to <a href="/">Home Page</a></div>}
+                            {data.subjectBookCount === '0' && !loading && <div style={{color: "#dd1c1c"}}>No book found. Go to <a href="/">Home Page</a></div>}
                             {
                                 books.map(book => 
                                 <li className="listli">
@@ -167,11 +167,11 @@ function SubjectDetail() {
                                             <div className="product-img">
                                                 <img
                                                     loading="lazy"
-                                                    alt="book-image"
+                                                    alt="book-cover"
                                                     className="wooble"
                                                     src={book.properties.Image}
                                                 />
-                                                {book.properties.Count == 0  && 
+                                                {book.properties.Count === '0'  && 
                                                     <div className="not-available-container">
                                                         <span>Not available</span>
                                                     </div>
@@ -179,7 +179,7 @@ function SubjectDetail() {
                                                 <div className="add-to-wishlist">
                                                     <div>
                                                         {
-                                                            (!user_data[2] || !user_data[2].find(wishlist => wishlist.identity.low == book.identity.low))
+                                                            (!user_data[2] || !user_data[2].find(wishlist => wishlist.identity.low === book.identity.low))
                                                             ?<i className="fa fa-heart-o"></i>
                                                             :<i className="fa fa-heart"></i>
                                                         }
@@ -199,7 +199,7 @@ function SubjectDetail() {
                                 </li>)
                             }
                             {loading && <Loading1/>}
-                            {page > totalPage && data.subjectBookCount != 0 && !loading && <div>No more results</div>}
+                            {page > totalPage && data.subjectBookCount !== '0' && !loading && <div>No more results</div>}
                         </ul>
                     </div>
                 </div>

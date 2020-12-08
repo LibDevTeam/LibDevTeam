@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import OwlCarousel from 'react-owl-carousel';
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import './RecentlyAdded.css';
-import { GlobalContext } from './GlobalState';
+import { useStateValue } from './StateProvider';
 
 function RecentlyAdded() {
-    const { user_data, addToWishlist } = useContext(GlobalContext);
+    const [{ user_data }] = useStateValue();
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     const [wishlistLoading, setWishlistLoading] = useState(true);
@@ -60,14 +60,14 @@ function RecentlyAdded() {
                         data.map(book => 
                             <div className="trendingProduct">
                                 <a className="product-card" href={`/book/${book.identity.low}`}>
-                                    <div className={`product-img ${book.properties.Count == 0 && 'product-na'}`}>
+                                    <div className={`product-img ${book.properties.Count === '0' && 'product-na'}`}>
                                         <img
                                             loading="lazy"
                                             alt="product"
                                             className="wooble"
                                             src={book.properties.Image}
                                         />
-                                        {book.properties.Count == 0  && 
+                                        {book.properties.Count === '0'  && 
                                             <div className="not-available-container">
                                                 <span>Not available</span>
                                             </div>
@@ -75,12 +75,13 @@ function RecentlyAdded() {
                                         <div className="add-to-wishlist">
                                             <div>
                                                 {
-                                                    !wishlistLoading && <i className="fa fa-spinner fa-spin"></i>
+                                                    !wishlistLoading &&
+                                                    <i className="fa fa-spinner fa-spin"></i>
                                                 }
                                                 {
-                                                    wishlistLoading && user_data[2] && user_data[2].find(wishlist => wishlist.identity.low == book.identity.low)
-                                                    ?<i className="fa fa-heart"></i>
-                                                    :<i title="Add to wishlist" onClick={(e) => {e.preventDefault(); addToWishlist(book)}} className="fa fa-heart-o"></i>
+                                                    wishlistLoading && user_data[2] && user_data[2].find(wishlist => wishlist.identity.low === book.identity.low)
+                                                    ?<i title="Remove from wishlist" className="fa fa-heart"></i>
+                                                    :<i title="Add to wishlist" onClick={(e) => {e.preventDefault()}} className="fa fa-heart-o"></i>
                                                 }
                                             </div>
                                         </div>

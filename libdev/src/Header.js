@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Header(Main).css';
 import './Header(Sticky).css';
 import './Header(Below).css';
 import { MenuItem, MenuList } from '@material-ui/core';
 import { useAuth0 } from '@auth0/auth0-react';
-import { GlobalContext } from './GlobalState';
+import { useStateValue } from './StateProvider';
 import $ from 'jquery';
 
 function addToPlaceholder(toAdd, el) {
@@ -42,8 +42,8 @@ function run() {
     printPhrases(phrases, $('#search-text'));
 }
 
-function Header({props}) {
-    const { logout, user, isLoading } = useAuth0();
+function Header() {
+    const { logout, user } = useAuth0();
     const node = useRef();
     const [query, setQuery] = useState('');
     const [subject,setSubject] = useState('all');
@@ -53,7 +53,7 @@ function Header({props}) {
     const [bookLoading,setBookLoading] = useState(false);
     const [openBox,setOpenBox] = useState(false);
     const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
-    const { user_data, getUserData } = useContext(GlobalContext);
+    const [{ user_data }] = useStateValue();
     
     useEffect(() => {
         window.addEventListener("mousedown",handleClick);
@@ -168,8 +168,8 @@ function Header({props}) {
                                     </a>
                                     <span>
                                         <a href="/account" className="myaccount-hover">
-                                            <span className="account-text">My account</span>
-                                            {/* <span className="account-text">My account</span> */}
+                                            {/* <span className="account-text">My account</span>
+                                            <span className="account-text">My account</span> */}
                                             {/* <i className="fa fa-lock" aria-hidden="true"></i> */}
                                             {   !user_data[0] &&
                                                 <img

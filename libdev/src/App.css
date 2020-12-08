@@ -94,6 +94,7 @@ select {
 
 #move-to-top {
   background: #dd1c1c;
+  border: 0;
   /* visibility: hidden; */
   /* opacity: 0; */
   color: #fff;

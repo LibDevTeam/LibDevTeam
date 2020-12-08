@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import Loading1, { Loading2 } from './LoadingComponents';
 import './Search.css';
-import { GlobalContext } from './GlobalState';
+import { useStateValue } from './StateProvider';
 
 function Search() {
-    const { user_data } = useContext(GlobalContext);
+    const [{ user_data }] = useStateValue();
     const x = new URLSearchParams(window.location.search);
     const q = x.get('q');
     const subject = x.get('subject')
@@ -114,22 +114,22 @@ function Search() {
                     </div>
                     <div className="clear-border"></div>
                     <ul className="book-content">
-                        {data[0].low == 0 && !loading && <div style={{color: "#dd1c1c"}}>No book found</div>}
+                        {data[0].low === 0 && !loading && <div style={{color: "#dd1c1c"}}>No book found</div>}
                         {
                             books.map(book => 
                                 <li className="listli">
                                     <div className="trendingProduct">
                                         <a className="product-card" href={`/book/${book._fields[0].identity.low}`}>
-                                            <div className={`product-img ${book._fields[0].properties.Count == 0 && 'product-na'}`}>
+                                            <div className={`product-img ${book._fields[0].properties.Count === '0' && 'product-na'}`}>
                                                 <img
                                                     loading="lazy"
-                                                    alt="book-image"
+                                                    alt="book-cover"
                                                     className="wooble"
                                                     src={book._fields[0].properties.Image}
                                                     onError={(e)=>{e.target.onerror = null; e.target.src="https://libyard.in/wp-content/uploads/woocommerce-placeholder-320x320.png"}}
                                                 />
                                                 {
-                                                    book._fields[0].properties.Count == 0 &&
+                                                    book._fields[0].properties.Count === '0' &&
                                                     <div className="not-available-container">
                                                         <span>Not available</span>
                                                     </div>
@@ -137,7 +137,7 @@ function Search() {
                                                 <div className="add-to-wishlist">
                                                     <div>
                                                         {
-                                                            (!user_data[2] || !user_data[2].find(wishlist => wishlist.identity.low == book._fields[0].identity.low))
+                                                            (!user_data[2] || !user_data[2].find(wishlist => wishlist.identity.low === book._fields[0].identity.low))
                                                             ?<i className="fa fa-heart-o"></i>
                                                             :<i className="fa fa-heart"></i>
                                                         }
@@ -157,7 +157,7 @@ function Search() {
                                 </li>)
                         }
                         {loading && <Loading1/>}
-                        {page > totalPage && data[0].low != 0 && !loading && <div>No more results</div>}
+                        {page > totalPage && data[0].low !== '0' && !loading && <div>No more results</div>}
                     </ul>
                 </div>
             </div>

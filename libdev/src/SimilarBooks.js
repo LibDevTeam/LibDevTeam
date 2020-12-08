@@ -18,7 +18,7 @@ function SimilarBooks() {
                 <OwlCarousel
                     navText={["<i class='slick-nav fa fa-angle-left'></i>","<i class='slick-nav fa fa-angle-right'></i>"]}
                     className="owl-theme thunk-slide"
-                    // autoplay={true}
+                    autoplay={true}
                     smartSpeed={400}
                     responsiveClass={true}
                     responsive={{0:{items:2},767:{items:3},1024:{items:4}}}

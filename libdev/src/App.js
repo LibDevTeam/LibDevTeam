@@ -3,8 +3,9 @@ import './App.css';
 import Login from './Login';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Loading3 } from './LoadingComponents';
-import { GlobalProvider } from './GlobalState';
 import Page from './Page';
+import { StateProvider } from './StateProvider';
+import reducer, { initialState } from './reducer';
 
 
 
@@ -30,12 +31,12 @@ function App() {
   if(isAuthenticated || isLoading) return (
       <div className="app">
         {isLoading && <Loading3/>}
-        <a href="" id="move-to-top" onClick={ScrollTop} className="move-to-top-hide">
+        <button id="move-to-top" onClick={ScrollTop} className="move-to-top-hide">
           <i className="fa fa-angle-up"></i>
-        </a>
-        <GlobalProvider>
+        </button>
+        <StateProvider initialState={initialState} reducer={reducer}>
           <Page/>
-        </GlobalProvider>
+        </StateProvider>
         <div className="modal">
           <span id="modal-close" onClick={modalClose}>&times;</span>
           <img alt="modal" className="modal-image" id="modal-image"/>

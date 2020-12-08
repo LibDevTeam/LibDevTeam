@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './MyAccount.css';
 import { Switch, Route } from 'react-router-dom';
 import Wishlist from './Wishlist';
 import Orders from './Orders';
 import { useAuth0 } from '@auth0/auth0-react';
-import { GlobalContext } from './GlobalState';
+import { useStateValue } from './StateProvider';
+// import { GlobalContext } from './GlobalState';
 
 function MyAccount() {
     const { logout, user } = useAuth0();
-    const { user_data } = useContext(GlobalContext);
+    const [{ user_data }] = useStateValue()
     const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
     return (

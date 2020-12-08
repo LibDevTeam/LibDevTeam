@@ -1,10 +1,10 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 import './Wishlist.css';
-import { GlobalContext } from './GlobalState';
 import Loading1 from './LoadingComponents';
+import { useStateValue } from './StateProvider';
 
 function Wishlist() {
-    const { user_data } = useContext(GlobalContext);
+    const [{ user_data }] = useStateValue();
 
     useEffect(() => {
         document.querySelector(".navigate-wishlist").classList.add(".navigate-active");
@@ -39,15 +39,17 @@ function Wishlist() {
                                 </a>
                             </div>
                             <div className="wishlist-product-details">
-                                <a className="wishlist-product-title">
+                                <a href={`/book/${book.identity.low}`} className="wishlist-product-title">
                                     <div>{book.properties.Name}</div>
                                 </a>
-                                <a className="wishlist-product-author">
+                                <a href={`/book/${book.identity.low}`} className="wishlist-product-author">
                                     <div>{book.properties.Author}</div>
                                 </a>
                                 <div className="wishlist-product-action">
                                     <span>
-                                        <a><div className="cross">×</div> Remove from Wishlist</a>
+                                        <div>
+                                            <div className="cross">×</div> Remove from Wishlist
+                                        </div>
                                     </span>
                                 </div>
                             </div>
