@@ -9,7 +9,7 @@ import Page from './Page';
 
 
 function App() {
-  const  { isLoading, isAuthenticated, user } = useAuth0();
+  const  { isLoading, isAuthenticated } = useAuth0();
 
   const ScrollTop = () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
@@ -38,7 +38,7 @@ function App() {
         </GlobalProvider>
         <div className="modal">
           <span id="modal-close" onClick={modalClose}>&times;</span>
-          <img alt="modal-image" className="modal-image" id="modal-image"/>
+          <img alt="modal" className="modal-image" id="modal-image"/>
           <div id="caption"></div>
         </div>
       </div>

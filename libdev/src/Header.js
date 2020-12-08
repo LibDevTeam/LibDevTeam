@@ -288,7 +288,7 @@ function Header({props}) {
                                         <span>Wishlist</span>
                                         <i className="fa fa-heart-o" aria-hidden="true"></i>
                                     </a>
-                                    <a className="myaccount-hover">
+                                    <a href="/" className="myaccount-hover">
                                         {/* <span className="account-text">Login / SignUp</span> */}
                                         {/* <i className="fa fa-lock" aria-hidden="true"></i> */}
                                         {   !user_data[0] && 

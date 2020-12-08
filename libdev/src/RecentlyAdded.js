@@ -6,9 +6,17 @@ import './RecentlyAdded.css';
 import { GlobalContext } from './GlobalState';
 
 function RecentlyAdded() {
-    const { user_data } = useContext(GlobalContext);
+    const { user_data, addToWishlist } = useContext(GlobalContext);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
+    const [wishlistLoading, setWishlistLoading] = useState(true);
+
+    useEffect(() => {
+        console.log(user_data);
+        if(user_data[2]) {
+            setWishlistLoading(false);
+        }
+    },[user_data])
 
     useEffect(() => {
         setLoading(true);
@@ -67,9 +75,12 @@ function RecentlyAdded() {
                                         <div className="add-to-wishlist">
                                             <div>
                                                 {
-                                                    (!user_data[2] || !user_data[2].find(wishlist => wishlist.identity.low == book.identity.low))
-                                                    ?<i className="fa fa-heart-o"></i>
-                                                    :<i className="fa fa-heart"></i>
+                                                    !wishlistLoading && <i className="fa fa-spinner fa-spin"></i>
+                                                }
+                                                {
+                                                    wishlistLoading && user_data[2] && user_data[2].find(wishlist => wishlist.identity.low == book.identity.low)
+                                                    ?<i className="fa fa-heart"></i>
+                                                    :<i title="Add to wishlist" onClick={(e) => {e.preventDefault(); addToWishlist(book)}} className="fa fa-heart-o"></i>
                                                 }
                                             </div>
                                         </div>

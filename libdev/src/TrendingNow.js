@@ -9,6 +9,13 @@ function TrendingNow() {
     const { user_data } = useContext(GlobalContext);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
+    const [wishlistLoading, setWishlistLoading] = useState(true);
+
+    useEffect(() => {
+        if(user_data[2]) {
+            setWishlistLoading(false);
+        }
+    },[user_data])
 
     useEffect(() => {
         setLoading(true);
@@ -67,9 +74,12 @@ function TrendingNow() {
                                         <div className="add-to-wishlist">
                                             <div>
                                                 {
-                                                    (!user_data[2] || !user_data[2].find(wishlist => wishlist.identity.low == book.identity.low))
-                                                    ?<i className="fa fa-heart-o"></i>
-                                                    :<i className="fa fa-heart"></i>
+                                                    !wishlistLoading && <i className="fa fa-spinner fa-spin"></i>
+                                                }
+                                                {
+                                                    wishlistLoading && user_data[2] && user_data[2].find(wishlist => wishlist.identity.low == book.identity.low)
+                                                    ?<i className="fa fa-heart"></i>
+                                                    :<i className="fa fa-heart-o"></i>
                                                 }
                                             </div>
                                         </div>

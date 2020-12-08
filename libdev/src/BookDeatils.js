@@ -67,7 +67,7 @@ function BookDeatils() {
                                 </li>
                                 <li>
                                     <form>
-                                        <button type="button" disabled>
+                                        <button type="button" style={{cursor: "not-allowed"}} disabled>
                                             Order now
                                         </button>
                                     </form>

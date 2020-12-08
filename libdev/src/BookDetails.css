@@ -79,6 +79,7 @@
 .main-area-product-details .book-button-container li>button,
 .main-area-product-details .book-button-container li>a {
     padding: 18px 8px;
+    text-align: center;
     border-radius: 2px;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
     width: 98%;

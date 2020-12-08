@@ -10,6 +10,10 @@ function Page() {
     const { user_data, getUserData } = useContext(GlobalContext);
 
     useEffect(() => {
+        console.log(user_data);
+    }, [user_data])
+
+    useEffect(() => {
         const fetchData = async () => {
             await fetch(`/api/v1/get/userDetails?email=${user.email}`)
             .then(res => res.json())
