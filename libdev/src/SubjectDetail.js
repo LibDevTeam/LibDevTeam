@@ -3,9 +3,10 @@ import './SubjectDetail.css';
 import { useParams } from 'react-router-dom';
 import Loading1, { Loading2 } from './LoadingComponents';
 import { useStateValue } from './StateProvider';
+import { addToWishlist, removeFromWishlist } from './util';
 
 function SubjectDetail() {
-    const [{ user_data }] = useStateValue();
+    const [{ user_data }, dispatch] = useStateValue();
     const { subjectId } = useParams();
     const [page, setPage] = useState(0);
     const [books, setBooks] = useState([]);
@@ -179,9 +180,11 @@ function SubjectDetail() {
                                                 <div className="add-to-wishlist">
                                                     <div>
                                                         {
-                                                            (!user_data[2] || !user_data[2].find(wishlist => wishlist.identity.low === book.identity.low))
-                                                            ?<i className="fa fa-heart-o"></i>
-                                                            :<i className="fa fa-heart"></i>
+                                                            !user_data[2]
+                                                            ?<i className="fa fa-spinner fa-spin"></i>
+                                                            :(user_data[2] && !user_data[2].find(wishlist => wishlist.identity.low === book.identity.low))
+                                                            ?<i onClick={(e) => {e.preventDefault(); addToWishlist(user_data[0].properties.email,book,dispatch)}} className="fa fa-heart-o"></i>
+                                                            :<i onClick={(e) => {e.preventDefault(); removeFromWishlist(user_data[0].properties.email,book,dispatch)}} className="fa fa-heart"></i>
                                                         }
                                                     </div>
                                                 </div>

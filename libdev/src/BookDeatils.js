@@ -4,12 +4,13 @@ import SimilarBooks from './SimilarBooks';
 import { useParams } from 'react-router-dom';
 import { Loading2 } from './LoadingComponents';
 import { useStateValue } from './StateProvider';
+import { addToWishlist } from './util';
 
 function BookDeatils() {
     const { bookId } = useParams();
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState();
-    const [{ user_data }] = useStateValue();
+    const [{ user_data }, dispatch] = useStateValue();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -58,8 +59,10 @@ function BookDeatils() {
                             <ul>
                                 <li>
                                     {
-                                        (!user_data[2] || !user_data[2].find(book => book.identity.low === data[0].identity.low))
-                                        ?<button>
+                                        !user_data[2]
+                                        ?<button>Loading...</button>
+                                        :user_data[2] && !user_data[2].find(book => book.identity.low === data[0].identity.low)
+                                        ?<button onClick={(e) => {e.preventDefault(); addToWishlist(user_data[0].properties.email,data[0],dispatch)}}>
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to wishlist
                                         </button>
                                         :<a href="/account/wishlist">Go to wishlist</a>

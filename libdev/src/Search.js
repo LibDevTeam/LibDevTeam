@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Loading1, { Loading2 } from './LoadingComponents';
 import './Search.css';
 import { useStateValue } from './StateProvider';
+import { addToWishlist, removeFromWishlist } from './util';
 
 function Search() {
-    const [{ user_data }] = useStateValue();
+    const [{ user_data }, dispatch] = useStateValue();
     const x = new URLSearchParams(window.location.search);
     const q = x.get('q');
     const subject = x.get('subject')
@@ -137,9 +138,11 @@ function Search() {
                                                 <div className="add-to-wishlist">
                                                     <div>
                                                         {
-                                                            (!user_data[2] || !user_data[2].find(wishlist => wishlist.identity.low === book._fields[0].identity.low))
-                                                            ?<i className="fa fa-heart-o"></i>
-                                                            :<i className="fa fa-heart"></i>
+                                                            !user_data[2]
+                                                            ?<i className="fa fa-spinner fa-spin"></i>
+                                                            :(user_data[2] && !user_data[2].find(wishlist => wishlist.identity.low === book._fields[0].identity.low))
+                                                            ?<i onClick={(e) => {e.preventDefault(); addToWishlist(user_data[0].properties.email, book._fields[0], dispatch)}} className="fa fa-heart-o"></i>
+                                                            :<i onClick={(e) => {e.preventDefault(); removeFromWishlist(user_data[0].properties.email, book._fields[0], dispatch)}} className="fa fa-heart"></i>
                                                         }
                                                     </div>
                                                 </div>

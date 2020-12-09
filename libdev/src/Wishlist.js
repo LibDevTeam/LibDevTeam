@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import './Wishlist.css';
 import Loading1 from './LoadingComponents';
 import { useStateValue } from './StateProvider';
+import { removeFromWishlist } from './util';
 
 function Wishlist() {
-    const [{ user_data }] = useStateValue();
+    const [{ user_data }, dispatch] = useStateValue();
 
     useEffect(() => {
         document.querySelector(".navigate-wishlist").classList.add(".navigate-active");
@@ -47,9 +48,12 @@ function Wishlist() {
                                 </a>
                                 <div className="wishlist-product-action">
                                     <span>
-                                        <div>
-                                            <div className="cross">×</div> Remove from Wishlist
-                                        </div>
+                                        {
+                                            user_data[2] &&
+                                            <div style={{cursor: 'pointer'}} onClick={(e) => {e.preventDefault(); removeFromWishlist(user_data[0].properties.email, book, dispatch)}}>
+                                                <div className="cross">×</div> Remove from Wishlist
+                                            </div>
+                                        }
                                     </span>
                                 </div>
                             </div>
