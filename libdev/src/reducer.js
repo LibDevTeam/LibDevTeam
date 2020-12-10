@@ -1,3 +1,5 @@
+import { messageBox } from "./util";
+
 export const initialState = {
     user_data: []
 }
@@ -15,6 +17,7 @@ const reducer = (state, action) => {
             console.log(123);
             console.log(action.payload);
             state.user_data[2].push(action.payload);
+            messageBox('Added to wishlist',1)
             return {
                 ...state,
             }
@@ -23,12 +26,13 @@ const reducer = (state, action) => {
             console.log(state);
             let newWishlist = state.user_data[2].filter(wishlist => wishlist.identity.low !== action.payload.identity.low)
             state.user_data[2] = newWishlist;
+            messageBox('Removed from wishlist',1)
             return {
                 ...state,
             }
 
         case 'Error_Message':
-            window.alert(`ERROR ${action.payload} OCCURED`);
+            messageBox(`ERROR ${action.payload} OCCURED`,0)
             return state;
 
         default:

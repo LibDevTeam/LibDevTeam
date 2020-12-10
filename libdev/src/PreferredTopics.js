@@ -45,11 +45,16 @@ function PreferredTopics() {
                                         <div className="thunk-topic-image">
                                             <a href={`/subject/${subject.identity.low}`} className="topic-link">
                                                 <img
-                                                    style={{maxHeight: "300px"}}
+                                                    style={{maxHeight: "300px", borderRadius: '3px'}}
                                                     loading="lazy"
                                                     alt={subject.properties.name}
                                                     src={subject.properties.img}
                                                 />
+                                            </a>
+                                            <a href={`/subject/${subject.identity.low}`} className="thunk-topic-name-container">
+                                                <div className="thunk-topic-name-wrapper">
+                                                    <h2 className="thunk-topic-name">{subject.properties.name}</h2>
+                                                </div>
                                             </a>
                                         </div>
                                     </div>

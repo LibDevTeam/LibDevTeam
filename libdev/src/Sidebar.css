@@ -84,7 +84,7 @@
 }
 
 .sidebar-main .menu-category-list ul#product-cat-list {
-    max-height: 260px;
+    max-height: 860px;
     transition: max-height 0.80s ease-in;
     /* display: block; */
     overflow: hidden;

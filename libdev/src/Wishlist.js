@@ -3,6 +3,7 @@ import './Wishlist.css';
 import Loading1 from './LoadingComponents';
 import { useStateValue } from './StateProvider';
 import { removeFromWishlist } from './util';
+import { Button } from '@material-ui/core';
 
 function Wishlist() {
     const [{ user_data }, dispatch] = useStateValue();
@@ -50,9 +51,9 @@ function Wishlist() {
                                     <span>
                                         {
                                             user_data[2] &&
-                                            <div style={{cursor: 'pointer'}} onClick={(e) => {e.preventDefault(); removeFromWishlist(user_data[0].properties.email, book, dispatch)}}>
+                                            <Button color='rgb(0,0,0)' style={{cursor: 'pointer', background: '#f9f9f9'}} onClick={(e) => {e.preventDefault(); removeFromWishlist(user_data[0].properties.email, book, dispatch)}}>
                                                 <div className="cross">×</div> Remove from Wishlist
-                                            </div>
+                                            </Button>
                                         }
                                     </span>
                                 </div>

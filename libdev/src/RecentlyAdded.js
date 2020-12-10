@@ -7,17 +7,17 @@ import { useStateValue } from './StateProvider';
 import { addToWishlist } from './util';
 
 function RecentlyAdded() {
-    const [{ user_data }, dispatch] = useStateValue();
+    // const [{ user_data }, dispatch] = useStateValue();
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
-    const [wishlistLoading, setWishlistLoading] = useState(true);
+    // const [wishlistLoading, setWishlistLoading] = useState(true);
 
-    useEffect(() => {
-        console.log(user_data);
-        if(user_data[2]) {
-            setWishlistLoading(false);
-        }
-    },[user_data])
+    // useEffect(() => {
+    //     console.log(user_data);
+    //     if(user_data[2]) {
+    //         setWishlistLoading(false);
+    //     }
+    // },[user_data])
 
     useEffect(() => {
         setLoading(true);

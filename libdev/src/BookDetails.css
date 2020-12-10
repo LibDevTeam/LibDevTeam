@@ -78,6 +78,7 @@
 
 .main-area-product-details .book-button-container li>button,
 .main-area-product-details .book-button-container li>a {
+    line-height: 1;
     padding: 18px 8px;
     text-align: center;
     border-radius: 2px;
@@ -91,6 +92,7 @@
     font-size: 16px;
     cursor: pointer;
     transition: all 0.4s ease;
+    color: #fff !important;
 }
 
 .main-area-product-details .book-button-container li>button:hover,
@@ -98,9 +100,11 @@
 .main-area-product-details .book-button-container li>form>button:hover {
     box-shadow: 0 4px 6px 0 rgba(0,0,0,.12);
     transition: all 0.4s ease;
+    color: #fff !important;
 }
 
 .main-area-product-details .book-button-container li>form>button {
+    line-height: 1;
     background: #fb641b;
     transition: all 0.4s ease;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);

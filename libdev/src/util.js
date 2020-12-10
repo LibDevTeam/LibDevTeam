@@ -43,3 +43,15 @@ export function removeFromWishlist (email, book, dispatch) {
         }
     })
 }
+
+export function messageBox (message, status) {
+    var x = document.getElementById("snackbar");
+    x.innerHTML = message;
+    if(status === 1) x.style.background = '#26bc4e';
+    else x.style.background  = '#dd1c1c';
+    x.className = "show";
+    setTimeout(() => {
+        x.className = "";
+        x.innerHTML = '';
+    }, 3000);
+}

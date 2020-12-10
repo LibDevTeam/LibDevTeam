@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { Loading2 } from './LoadingComponents';
 import { useStateValue } from './StateProvider';
 import { addToWishlist } from './util';
+import { Button } from '@material-ui/core';
 
 function BookDeatils() {
     const { bookId } = useParams();
@@ -62,17 +63,17 @@ function BookDeatils() {
                                         !user_data[2]
                                         ?<button>Loading...</button>
                                         :user_data[2] && !user_data[2].find(book => book.identity.low === data[0].identity.low)
-                                        ?<button onClick={(e) => {e.preventDefault(); addToWishlist(user_data[0].properties.email,data[0],dispatch)}}>
+                                        ?<Button onClick={(e) => {e.preventDefault(); addToWishlist(user_data[0].properties.email,data[0],dispatch)}}>
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to wishlist
-                                        </button>
-                                        :<a href="/account/wishlist">Go to wishlist</a>
+                                        </Button>
+                                        :<Button style={{color: '#fff'}}><a href="/account/wishlist">Go to wishlist</a></Button>
                                     }
                                 </li>
                                 <li>
                                     <form>
-                                        <button type="button" style={{cursor: "not-allowed"}} disabled>
+                                        <Button type="button" style={{cursor: "not-allowed"}} disabled>
                                             Order now
-                                        </button>
+                                        </Button>
                                     </form>
                                 </li>
                             </ul>

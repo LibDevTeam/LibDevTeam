@@ -38,7 +38,7 @@ function TrendingNow() {
             <div className="thunk-heading-wrap">
                 <div className="thunk-heading">
                     <h4 className="thunk-title">
-                        <span className="title">Trending Now</span>
+                        <span className="title">Trending Books</span>
                     </h4>
                 </div>
             </div>

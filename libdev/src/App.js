@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, { useState } from 'react'; 
 import './App.css';
 import Login from './Login';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -6,10 +6,12 @@ import { Loading3 } from './LoadingComponents';
 import Page from './Page';
 import { StateProvider } from './StateProvider';
 import reducer, { initialState } from './reducer';
-
-
+import { messageBox } from './util';
 
 function App() {
+  const [openSnackBar, setOpenSnackBar] = useState(false);
+  
+
   const  { isLoading, isAuthenticated } = useAuth0();
 
   const ScrollTop = () => {
@@ -42,6 +44,8 @@ function App() {
           <img alt="modal" className="modal-image" id="modal-image"/>
           <div id="caption"></div>
         </div>
+        {/* <button onClick={(e) => {e.preventDefault(); messageBox('hi abcd', 0)}}>click to open snackbox</button> */}
+        <div id="snackbar"></div>
       </div>
   );
 
