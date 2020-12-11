@@ -1,0 +1,37 @@
+.preferences .trendingProduct .product-card .product-img {
+    position: relative;
+}
+
+.preferences .trendingProduct .product-card .product-img img {
+    height: 160px !important;
+    width: 100%;
+}
+
+.preferences .trendingProduct .product-card .product-img .subject-remove {
+    position: absolute;
+    top: 5%;
+    left: 80%;
+}
+
+.preferences .trendingProduct .product-card .product-img .subject-remove>div {
+    background: #111;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 4px;
+    transform: scale(1);
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 10px -2px rgba(50, 50, 50, 0.82);
+    -webkit-box-shadow: 3px 3px 10px -2px rgba(50, 50, 50, 0.82);
+    -moz-box-shadow: 3px 3px 10px -2px rgba(50, 50, 50, 0.82);
+}
+
+.preferences .trendingProduct .product-card .product-img .subject-remove>div:hover {
+    transition: all 0.3s ease;
+    transform: scale(1.5);
+}
+
+.preferences .trendingProduct .product-card .product-img .subject-remove>div>i {
+    color: #fff;
+}

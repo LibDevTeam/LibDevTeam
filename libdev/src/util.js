@@ -44,6 +44,52 @@ export function removeFromWishlist (email, book, dispatch) {
     })
 }
 
+export function addToPreference (email, subject, dispatch) {
+    async function postData() {
+        let response = await fetch(`api/v1/post/preference/add?email=${email}&id=${subject.identity.low}`,{method: 'POST'});
+        let statusCode1 = response.status;
+        return statusCode1;
+    }
+    postData()
+    .then(res => {
+        if(res == 200 || res == 304) {
+            dispatch({
+                type: 'Add_To_Preference',
+                payload: subject
+            })
+        }
+        else {
+            dispatch({
+                type: 'Error_Message',
+                payload: res
+            })
+        }
+    })
+}
+
+export function removeFromPreference (email, subject, dispatch) {
+    async function postData() {
+        let response = await fetch(`api/v1/post/preference/remove?email=${email}&id=${subject.identity.low}`,{method: 'POST'});
+        let statusCode1 = response.status;
+        return statusCode1;
+    }
+    postData()
+    .then(res => {
+        if(res == 200 || res == 304) {
+            dispatch({
+                type: 'Remove_From_Preference',
+                payload: subject
+            })
+        }
+        else {
+            dispatch({
+                type: 'Error_Message',
+                payload: res
+            })
+        }
+    })
+}
+
 export function messageBox (message, status) {
     var x = document.getElementById("snackbar");
     x.innerHTML = message;
