@@ -63,14 +63,20 @@
 
 .container .book-list-items .subject-1stLine .searchBox input {
     width: 100%;
-    padding-left: 18px;
+    margin-left: 18px;
     color: #999;
     font-size: 13px;
     text-overflow: ellipsis;
-    transition: all .15s ease-in-out;
+    transition: all .3s ease-in-out;
     padding-bottom: 8px;
     line-height: inherit;
     border: 0 none;
+}
+
+.container .book-list-items .subject-1stLine .searchBox input:focus {
+    border-bottom: 1px solid #e40046;
+    padding-bottom: 1px;
+    transition: all 0.3s ease;
 }
 
 .container .book-list-items .subject-1stLine .searchBox #swsIco {
@@ -348,6 +354,19 @@
     font-size: 12px;
     color: #878787;
     display: inline-block;
+}
+
+.container ul.thunk-breadcrumb li.trail-end {
+    cursor: default !important;
+}
+
+.container ul.thunk-breadcrumb li.trail-end a:hover {
+    color: #878787 !important;
+    cursor: default !important;
+}
+
+.container ul.thunk-breadcrumb li.trail-item-dept {
+    text-transform: uppercase;
 }
 
 .container ul.thunk-breadcrumb li a {

@@ -1,6 +1,7 @@
 .main-area .category-box {
     margin: 0px auto 30px;
     z-index: 9;
+    width: 100%;
     background: #fff;
     border-bottom: 1px solid #ccc;
     box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
@@ -9,7 +10,7 @@
 .main-area .category-box>ul {
     margin: 0px;
     padding-top: 0px;
-    padding-bottom: 0px;
+    padding-bottom: 10px;
     padding-left: 0px;
     padding-right: auto;
 }
@@ -36,10 +37,14 @@
 }
 
 .main-area .category-box>ul>li>a>span {
-    padding-top: 18px;
+    padding-top: 10px;
     /* float: left; */
     display: inline-block;
     zoom: 1;
+}
+
+.main-area .category-tab {
+    width: 100%;
 }
 
 .main-area .category-tab .category-table {

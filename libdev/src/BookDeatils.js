@@ -1,22 +1,44 @@
-import { Button } from '@material-ui/core';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './BookDetails.css';
 import SimilarBooks from './SimilarBooks';
+import { useParams } from 'react-router-dom';
+import { Loading2 } from './LoadingComponents';
+import { useStateValue } from './StateProvider';
+import { addToWishlist } from './util';
+import { Button } from '@material-ui/core';
 
 function BookDeatils() {
+    const { bookId } = useParams();
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState();
+    const [{ user_data }, dispatch] = useStateValue();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            await fetch(`/api/v1/get/book?bookId=${bookId}`)
+            .then(response => response.json())
+            .then(apiData => {
+                setData(apiData);
+                setLoading(false);
+            })
+        }
+        fetchData();
+    }, [])
+
     const modalShow = (e) => {
         let modal = document.querySelector(".modal");
         modal.style.display = "block";
-        // console.log(modal.querySelector(".modal-image"));
         modal.querySelector(".modal-image").src = e.src;
         modal.querySelector("#caption").innerHTML = e.alt;
         document.body.style.overflow = "hidden";
     }
 
-    const modalClose = () => {
-        document.querySelector(".modal-image").src= null;
-        document.querySelector(".modal").style.display = "none";
-    }
+    // const modalClose = () => {
+    //     document.querySelector(".modal-image").src= null;
+    //     document.querySelector(".modal").style.display = "none";
+    // }
+
+    if(loading) return <Loading2/>
 
     return (
         <div className="content-wrap" style={{transform: "none"}}>
@@ -28,24 +50,30 @@ function BookDeatils() {
                                 <img
                                     onClick={(e) => {modalShow(e.target)}}
                                     className="book-details-image"
-                                    alt="Database Management System"
+                                    alt={data[0].properties.Name}
                                     loading="lazy"
-                                    src="https://rukminim1.flixcart.com/image/416/416/jpu324w0/book/7/4/1/database-management-system-original-imafbzz7nwqhg6dn.jpeg?q=70"
+                                    src={data[0].properties.Image}
                                 />
                             </div>
                         </div>
                         <div className="book-button-container">
                             <ul>
                                 <li>
-                                    <button>
-                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to wishlist
-                                    </button>
+                                    {
+                                        !user_data[2]
+                                        ?<button>Loading...</button>
+                                        :user_data[2] && !user_data[2].find(book => book.identity.low === data[0].identity.low)
+                                        ?<Button onClick={(e) => {e.preventDefault(); addToWishlist(user_data[0].properties.email,data[0],dispatch)}}>
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to wishlist
+                                        </Button>
+                                        :<Button style={{color: '#fff'}}><a href="/account/wishlist">Go to wishlist</a></Button>
+                                    }
                                 </li>
                                 <li>
                                     <form>
-                                        <button type="button">
+                                        <Button type="button" style={{cursor: "not-allowed"}} disabled>
                                             Order now
-                                        </button>
+                                        </Button>
                                     </form>
                                 </li>
                             </ul>
@@ -61,13 +89,13 @@ function BookDeatils() {
                                         </a>
                                     </li>
                                     <li className="trail-item">
-                                        <a>
+                                        <a href="/">
                                             <span>Books</span>
                                         </a>
                                     </li>
                                     <li className="trail-item trail-end">
                                         <a>
-                                            <span>Database Manage System</span>
+                                            <span>{data[0].properties.Name}</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -77,57 +105,88 @@ function BookDeatils() {
                             <div className="book-title-wrapper">
                                 <div className="book-name-container">
                                     <h1>
-                                        <span>Database Management System (English, Paperback, Pakhira Malay k.)</span>
+                                        <span>{data[0].properties.Name}</span>
                                     </h1>
                                 </div>
                                 <div className="book-taken-container">
                                     <span>(10)</span>
                                 </div>
-                                <div className="book-items-left">Only a few left</div>
+                                {
+                                    data[0].properties.Count === '0' && <div className="book-items-left">Not available</div>
+                                }
+                                {
+                                    data[0].properties.Count !== '0' && data[0].properties.Count <= 5 && <div>Only {data[0].properties.Count} left</div>
+                                }
+                                {
+                                    data[0].properties.Count > 5 && data[0].properties.Count < 10 && <div>Only a few left</div>
+                                }
                             </div>
                         </div>
                         <div className="book-author-tab">
                             <div className="book-author-container">
                                 <div className="book-author">Author</div>
-                                <div className="book-author-name">Pakhira Malay K.</div>
+                                <div className="book-author-name">{data[0].properties.Author}</div>
                             </div>
                         </div>
-                        <div className="book-description-tab">
-                            <div>
-                                <div className="book-description-tag">Description</div>
-                                <div className="book-description-content">
-                                    Malay K. Pakhira’s Database Management System, published by Phi Learning, is a comprehensive book for Computer Science and Information Science students. It comprises of fundamental concepts explained in simple and lucid language for better comprehension. The book is updated with the trending developments in the field and has extensive examples and real time problems and solution for better practice.
+                        {
+                            data[0].properties.Description && 
+                            <div className="book-description-tab">
+                                <div>
+                                    <div className="book-description-tag">Description</div>
+                                    <div className="book-description-content">{data[0].properties.Description}</div>
                                 </div>
                             </div>
-                        </div>
+                        }
                         <div className="book-more-details-tab">
                             <div>
                                 <div className="book-more-details-heading">More Details</div>
                                 <ul>
-                                    <li>
-                                        <div>Language</div>
-                                        <div>English</div>
-                                    </li>
-                                    <li>
-                                        <div>Binding</div>
-                                        <div>Paperback</div>
-                                    </li>
-                                    <li>
-                                        <div>Publisher</div>
-                                        <div>PHI Learning</div>
-                                    </li>
+                                    {
+                                        data[0].properties.Language && 
+                                        <li>
+                                            <div>Language</div>
+                                            <div>{data[0].properties.Language}</div>
+                                        </li>
+                                    }
+                                    {
+                                        data[0].properties.Binding && 
+                                        <li>
+                                            <div>Binding</div>
+                                            <div>{data[0].properties.Binding}</div>
+                                        </li>
+                                    }
+                                    {
+                                        data[0].properties.Edition && 
+                                        <li>
+                                            <div>Edition</div>
+                                            <div>{data[0].properties.Edition}</div>
+                                        </li>
+                                    }
+                                    {
+                                        data[0].properties.Publisher && 
+                                        <li>
+                                            <div>Publisher</div>
+                                            <div>{data[0].properties.Publisher}</div>
+                                        </li>
+                                    }
                                     <li>
                                         <div>Subject</div>
-                                        <div>DBMS</div>
+                                        <div><a href={`/subject/${data[1].identity.low}`}>{data[1].properties.name}</a></div>
                                     </li>
-                                    <li>
-                                        <div>ISBN</div>
-                                        <div>9788120346741</div>
-                                    </li>
-                                    <li>
-                                        <div>Pages</div>
-                                        <div>268</div>
-                                    </li>
+                                    {
+                                        data[0].properties.ISBN && 
+                                        <li>
+                                            <div>ISBN</div>
+                                            <div>{data[0].properties.ISBN}</div>
+                                        </li>
+                                    }
+                                    {
+                                        data[0].properties.Pages && 
+                                        <li>
+                                            <div>Pages</div>
+                                            <div>{data[0].properties.Pages}</div>
+                                        </li>
+                                    }
                                 </ul>
                             </div>
                         </div>

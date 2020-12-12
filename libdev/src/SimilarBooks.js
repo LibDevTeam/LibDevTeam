@@ -18,7 +18,7 @@ function SimilarBooks() {
                 <OwlCarousel
                     navText={["<i class='slick-nav fa fa-angle-left'></i>","<i class='slick-nav fa fa-angle-right'></i>"]}
                     className="owl-theme thunk-slide"
-                    // autoplay={true}
+                    autoplay={true}
                     smartSpeed={400}
                     responsiveClass={true}
                     responsive={{0:{items:2},767:{items:3},1024:{items:4}}}
@@ -29,9 +29,11 @@ function SimilarBooks() {
                     autoplayHoverPause={true}
                 >
                     <div className="trendingProduct">
-                        <a className="product-card" href="">
+                        <a className="product-card" href="/">
                             <div className="product-img">
                                 <img
+                                    loading="lazy"
+                                    alt="product"
                                     className="wooble"
                                     src="https://images-na.ssl-images-amazon.com/images/I/712XlaVQ8OL.jpg"
                                 />
@@ -47,9 +49,11 @@ function SimilarBooks() {
                         </a>
                     </div>
                     <div className="trendingProduct">
-                        <a className="product-card" href="">
+                        <a className="product-card" href="/">
                             <div className="product-img">
                                 <img
+                                    loading="lazy"
+                                    alt="product"
                                     className="wooble"
                                     src="https://images-na.ssl-images-amazon.com/images/I/514nzbCsaaL._SX352_BO1,204,203,200_.jpg"
                                 />
