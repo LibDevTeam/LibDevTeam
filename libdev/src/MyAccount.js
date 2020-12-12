@@ -5,7 +5,6 @@ import Wishlist from './Wishlist';
 import Orders from './Orders';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useStateValue } from './StateProvider';
-// import { GlobalContext } from './GlobalState';
 
 function MyAccount() {
     const { logout, user } = useAuth0();
@@ -62,7 +61,7 @@ function MyAccount() {
                                         <div>Wishlist</div>
                                     </a>
                                 </div>
-                                <div className="navigate logout" onClick={() => logout({returnTo: window.location.origin, client_id: clientId})}>
+                                <div className="navigate logout" onClick={(e) => {e.preventDefault(); logout({returnTo: window.location.origin, client_id: clientId})}}>
                                     <div>
                                         <i class="fa fa-power-off" aria-hidden="true"></i> Logout
                                     </div>

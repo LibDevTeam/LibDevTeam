@@ -8,7 +8,6 @@ import SubjectDetail from './SubjectDetail';
 import MyAccount from './MyAccount';
 import PendingBooks from './PendingBooks';
 import Search from './Search';
-import { Loading2 } from './LoadingComponents';
 import ProtectedRoute from './protected-route';
 import Preference from './Preference';
 
@@ -17,7 +16,6 @@ function Content() {
         <div id="content" className="front" style={{trnasform: "none"}}>
             <Switch>
                 <ProtectedRoute exact path="/" component={Home}/>
-                <ProtectedRoute path="/loading" component={Loading2}/>
                 <ProtectedRoute path="/search" component={Search}/>
                 <ProtectedRoute path="/book/:bookId" component={BookDeatils}/>
                 <ProtectedRoute path="/all-subjects" component={AllCategory}/>

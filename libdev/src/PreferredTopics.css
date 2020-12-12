@@ -34,6 +34,7 @@
     padding: 15px;
     position: relative;
     background: #171a29;
+    border-radius: 2px;
 }
 
 .thunk-preferred_topics-tab .thunk-slide {
@@ -50,11 +51,19 @@
 
 .thunk-preferred_topics-tab .thunk-slide .thunk-topic-wrap .thunk-topic .thunk-topic-image .topic-link img {
     max-height: 300px;
+    height: 200px !important;
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+.thunk-preferred_topics-tab .thunk-slide .thunk-topic-wrap .thunk-topic .thunk-topic-image .topic-link:hover img {
+    transition: all 0.3s ease;
+    transform: scale(1.1);
 }
 
 .thunk-preferred_topics-tab .thunk-slide .thunk-topic-wrap .thunk-topic .thunk-topic-image .thunk-topic-name-container {
     position: absolute;
-    top: 70%;
+    top: 50%;
     width: 100%;
 }
 

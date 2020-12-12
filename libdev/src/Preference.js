@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Loading1 from './LoadingComponents';
 import './Preference.css';
 import { useStateValue } from './StateProvider';
-import { addToPreference, removeFromPreference } from './util';
+import { addToPreference, messageBox, removeFromPreference } from './util';
 import { TextField } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
@@ -27,35 +27,42 @@ function Preference() {
 
     const handleSubmit = () => {
         var x = document.querySelector("input#combo-box-demo");
-        if(selectSubject && x.value === selectSubject.properties.name) addToPreference(user_data[0].properties.email, selectSubject, dispatch);
+        if(selectSubject && x.value === selectSubject.properties.name) {
+            if(user_data[1].length === 8) messageBox('Max limit reached',0);
+            else if(user_data[1].find(x => x.properties.name === selectSubject.properties.name)) {
+                messageBox('Subject Already Added', 0);
+            }
+            else {
+                addToPreference(user_data[0].properties.email, selectSubject, dispatch);
+            }
+        };
         document.getElementsByClassName('MuiAutocomplete-clearIndicator')[0].click();
     }
 
     return (
         <div className="content-wrap" style={{transform: "none"}}>
             <div className="container" style={{transform: "none"}}>
-                <div className="main-area disable-right-sidebar">
+                <div className="main-area disable-right-sidebar preference-page">
                     <div className="subject-header">
                         <div className="subject-heading">
                             <h1>Preferences</h1>
                         </div>
-                    </div>
-                    
-                        {
-                            !loading && 
+                        {/* { */}
+                            {/* !loading &&  */}
                             <div className="add_to_preference" style={{display: 'flex'}}>
-                            <Autocomplete
-                                onChange={(event, value) => setSelectSubject(value)}
-                                id="combo-box-demo"
-                                options={subjects}
-                                getOptionLabel={(option) => option.properties.name}
-                                style={{ width: 300 }}
-                                debug
-                                renderInput={(params) => <TextField {...params} label="Add your subject" variant="outlined" />}
-                            />
-                            <button type="button" onClick={(e) => {e.preventDefault(); handleSubmit()}}><LibraryAddIcon/></button>
+                                <Autocomplete
+                                    onChange={(event, value) => setSelectSubject(value)}
+                                    id="combo-box-demo"
+                                    options={subjects}
+                                    getOptionLabel={(option) => option.properties.name}
+                                    style={{ width: 300, padding: '0px' }}
+                                    debug
+                                    renderInput={(params) => <TextField {...params} label="Add your subject" variant="outlined" />}
+                                />
+                                <button type="button" onClick={(e) => {e.preventDefault(); handleSubmit()}}><LibraryAddIcon/></button>
                             </div>
-                        }
+                        {/* } */}
+                    </div>
                 </div>
                 <div className="book-list-items preferences">
                     <div className="subject-1stLine">

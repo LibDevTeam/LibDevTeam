@@ -5,11 +5,10 @@ import './Login.css';
 function Login() {
     const { loginWithRedirect, isAuthenticated } = useAuth0();
 
-
     return (
         ! isAuthenticated &&
-        <div>
-            <button onClick={() => loginWithRedirect({screen_hint: "signup"})}>
+        <div className="login-page">
+            <button onClick={() => loginWithRedirect()}>
                 Log in
             </button>
         </div>
