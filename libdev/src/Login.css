@@ -1,0 +1,16 @@
+.login-page {
+    display: flex;
+    text-align: center;
+    padding: auto;
+    width: 100vw;
+    height: 100vh;
+    background: #333;
+}
+
+.login-page button {
+    margin: auto;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+}

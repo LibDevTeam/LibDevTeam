@@ -3,21 +3,10 @@ import OwlCarousel from 'react-owl-carousel';
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import './RecentlyAdded.css';
-import { useStateValue } from './StateProvider';
-import { addToWishlist } from './util';
 
 function RecentlyAdded() {
-    // const [{ user_data }, dispatch] = useStateValue();
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
-    // const [wishlistLoading, setWishlistLoading] = useState(true);
-
-    // useEffect(() => {
-    //     console.log(user_data);
-    //     if(user_data[2]) {
-    //         setWishlistLoading(false);
-    //     }
-    // },[user_data])
 
     useEffect(() => {
         setLoading(true);

@@ -1,3 +1,38 @@
+.preference-page {
+    margin-bottom: 15px;
+}
+
+.preference-page .subject-heading {
+    padding-top: 9px;
+}
+
+.preference-page .subject-heading h1 {
+    margin: 0 ;
+}
+
+.preference-page #combo-box-demo {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.preference-page .MuiInputBase-root {
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.preference-page .add_to_preference>button {
+    background: #333333;
+    border: 0;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.preference-page .MuiInputLabel-formControl {
+    top: -10px;
+}
+
 .preferences .trendingProduct .product-card .product-img {
     position: relative;
 }

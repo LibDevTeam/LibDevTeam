@@ -14,9 +14,9 @@ function Home() {
                     <Sidebar/>
                     <div className="primary-content-area">
                         <div className="primary-content-wrap">
-                            <section className="thunk-slider-section">
+                            {/* <section className="thunk-slider-section">
                                 <AdsSection/>
-                            </section>
+                            </section> */}
                             <section className="thunk-prferred-topics-section">
                                 <PreferredTopics/>
                             </section>

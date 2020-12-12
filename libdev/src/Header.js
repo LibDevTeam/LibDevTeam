@@ -168,9 +168,6 @@ function Header() {
                                     </a>
                                     <span>
                                         <a href="/account" className="myaccount-hover">
-                                            {/* <span className="account-text">My account</span>
-                                            <span className="account-text">My account</span> */}
-                                            {/* <i className="fa fa-lock" aria-hidden="true"></i> */}
                                             {   !user_data[0] &&
                                                 <img
                                                     alt="profile-pic"
@@ -289,8 +286,6 @@ function Header() {
                                         <i className="fa fa-heart-o" aria-hidden="true"></i>
                                     </a>
                                     <a href="/" className="myaccount-hover">
-                                        {/* <span className="account-text">Login / SignUp</span> */}
-                                        {/* <i className="fa fa-lock" aria-hidden="true"></i> */}
                                         {   !user_data[0] && 
                                             <img
                                                 alt="profile-pic"
@@ -305,14 +300,13 @@ function Header() {
                                                 style={{width: '35px', height: '35px', borderRadius: '50%', marginBottom: '-10px', marginTop: '4px'}}
                                             />
                                         }
-                                        {/* <span className="account-text">My account</span> */}
                                         <div className="account-dropdown">
                                             <div className="clip"></div>
                                             <a href="/account">My Account</a>
                                             <a href="/account/cards">Card Details</a>
                                             <a href="/account/wishlist">My Wishlist</a>
                                             <a href="/account/orders">Orders</a>
-                                            <div className="logout" onClick={() => logout({returnTo: window.location.origin, client_id: clientId})}>Logout</div>
+                                            <div className="logout" onClick={(e) => {e.preventDefault(); logout({returnTo: window.location.origin, client_id: clientId})}}>Logout</div>
                                         </div>
                                     </a>
                                 </div>
